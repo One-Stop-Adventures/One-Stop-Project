@@ -9,12 +9,27 @@
   padding-left: 10px;
 }
 .footerLinks {
-  list-style: none;
+  list-style-type: none;
 
 }
 
 .pull-right {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+.social{
+  margin-top: 20px;
+}
+
+.fa-facebook{
+  color: #3B5998;
+}
+
+.fa-twitter {
+  color: #00BDF5;
+}
+
+.fa-instagram {
+
 }

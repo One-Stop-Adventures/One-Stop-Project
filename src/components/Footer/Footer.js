@@ -16,10 +16,10 @@ class Footer extends Component {
           <li>Dashboard</li>
           <li>Careers</li>
         </ul>
-        <ul className="col-sm-3 col-sm-3 pull-right footerLinks">
-          <li><i className="fa fa-facebook-square" aria-hidden="true"></i></li>
-          <li>Twitter</li>
-          <li>Instagram</li>
+        <ul className="col-sm-3 col-sm-3 pull-right footerLinks social">
+          <li><i className="fa fa-facebook fa-2x" aria-hidden="true"></i></li>
+          <li><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></li>
+          <li><i className="fa fa-instagram fa-2x" aria-hidden="true"></i></li>
         </ul>
 
       </nav>
