@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+.footer {
+  margin: 0;
+  height: 80px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.footerLinks {
+  list-style-type: none;
+
+}
+
+.pull-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.social{
+  margin-top: 20px;
+}
+
+.fa-facebook{
+  color: #3B5998;
+}
+
+.fa-twitter {
+  color: #00BDF5;
+}
+
+.fa-instagram {
+
+}

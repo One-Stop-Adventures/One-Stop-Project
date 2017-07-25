@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -8,18 +9,71 @@ const session = require('express-session');
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
-
-app.use(session({secret: 'me too thanks'}))
-app.use(passport.initialize())
-app.use(passport.session())
+const LocalStrategy = require('passport-local').Strategy;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', express.static(__dirname + '/build'))
-// massive(process.env.DATABASE_URL).then(dbInstance=>{
-//   app.set('db', dbInstance)
-// });
-// masterRoutes(app);
+
+app.use( session({ secret: 'superSecret' }))
+let db;
+massive(process.env.DATABASE_URL).then(dbInstance=>{
+  app.set('db', dbInstance)
+  db = dbInstance
+});
+
+masterRoutes(app);
+
+// Passport Local Login
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { 
+      return res.send(info); 
+    }
+    req.logIn(user, function(err) {
+      if (err) { return res.send("Error") }
+      return res.send(req.user)
+    });
+  })(req, res, next);
+});
+
+passport.use( new LocalStrategy(
+  function ( username, password, done ){
+    console.log(username, password)
+    db.findOne([username])
+    .then(users => {
+      if ( !users.length ) {
+        return done( null, false, { message: 'Incorrect Username' });
+      }
+      if ( users[0].password !== password) {
+        return done( null, false, { message: 'Incorrect Password' });
+      }
+      const user = users[0]
+      delete user.password
+      return done( null, user )
+    })
+    .catch(err => {
+      console.log("SQL ERROR:", err)
+      return done(err)
+    })
+  }
+));
+
+passport.serializeUser(function(user, done) {
+	console.log('this is the serialized user: ', user);
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+	console.log('this is the deserialized user: ', obj);
+  done(null, obj);
+});
+//End of Passport Local
+
 
 //landing.js is where connect to frontend
 passport.use(new FacebookStrategy({
@@ -30,17 +84,17 @@ passport.use(new FacebookStrategy({
   return done(null, profile);
 }));
 
-// passport.use(new GoogleStrategy({
-//     clientID: "79316663432-tp4mvccldneduge8n1iell2n0bfgtc6p.apps.googleusercontent.com",
-//     clientSecret: "m10LeIqjmd_oz9B6uvG87ChA",
-//     callbackURL: "http://localhost:4000/auth/google/callback"
-//   },
-//   function(accessToken, refreshToken, profile, done) {
-//       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//          return done(err, user);
-//       })
-//   }
-// ));
+passport.use(new GoogleStrategy({
+    clientID: "79316663432-tp4mvccldneduge8n1iell2n0bfgtc6p.apps.googleusercontent.com",
+    clientSecret: "m10LeIqjmd_oz9B6uvG87ChA",
+    callbackURL: "http://localhost:4000/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+         return done(err, user);
+      })
+  }
+));
 
 app.get("/auth/facebook", passport.authenticate("facebook"));
 app.get("/auth/facebook/callback", passport.authenticate("facebook", {
@@ -48,25 +102,14 @@ app.get("/auth/facebook/callback", passport.authenticate("facebook", {
   failureRedirect: "/auth/facebook"
 }));
 
-//app.get("/auth/google", passport.authenticate("google"));
-// app.get('/auth/google',
-//   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
-// app.get("/auth/google/callback", passport.authenticate("google", {
-//   successRedirect: "http://localhost:4001/",
-//   failureRedirect: "/auth/google"
-// }));
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: 'http://localhost:4001/auth/google' }),
-//   function(req, res) {
-//     res.redirect('http://localhost:4001/');
-//   });
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: 'http://localhost:4001/auth/google' }),
+  function(req, res) {
+    res.redirect('http://localhost:4001/');
+  });
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
 
 app.listen(process.env.PORT, function(){
   console.log('Jet fuel cant melt steel beams')
