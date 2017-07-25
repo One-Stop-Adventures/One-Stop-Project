@@ -1,3 +1,7 @@
+.landingContainer{
+  background: url('../../img/landingBg.jpg') no-repeat center center;
+  background-size: cover;
+}
 .thumbnail {
   margin-left: 50px;
   margin-right: 50px;
@@ -5,13 +9,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(255, 255, 255, 0.3);
+
+}
+.thumbnail h1{
+  color: #fff;
+}
+.thumbnail input{
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .row {
   height: calc(100vh - 80px);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  margin-top: 15%;
 }
