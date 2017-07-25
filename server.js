@@ -7,7 +7,6 @@ const masterRoutes = require('./server/masterRoutes');
 const session = require('express-session');
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
-const LocalStrategy = require('passport-local').Strategy
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 
 app.use(session({secret: 'me too thanks'}))
