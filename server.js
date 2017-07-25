@@ -19,15 +19,12 @@ massive(process.env.DATABASE_URL).then(dbInstance=>{
   app.set('db', dbInstance)
   db = dbInstance
 });
-// masterRoutes(app);
+
+masterRoutes(app);
 
 // Passport Local Login
 app.use(passport.initialize())
 app.use(passport.session())
-
-// app.post('/login',
-//   passport.authenticate('local', { successRedirect: '/',
-//                                    failureRedirect: '/login' }));
 
 app.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
@@ -41,6 +38,7 @@ app.post('/login', function(req, res, next) {
     });
   })(req, res, next);
 });
+
 passport.use( new LocalStrategy(
   function ( username, password, done ){
     console.log(username, password)
@@ -72,6 +70,7 @@ passport.deserializeUser(function(obj, done) {
 	console.log('this is the deserialized user: ', obj);
   done(null, obj);
 });
+//End of Passport Local
 
 
 app.listen(process.env.PORT, function(){
