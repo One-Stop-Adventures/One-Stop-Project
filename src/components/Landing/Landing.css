@@ -1,0 +1,17 @@
+.thumbnail {
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row {
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
