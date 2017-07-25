@@ -1,0 +1,20 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+.footer {
+  margin: 0;
+  height: 80px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.footerLinks {
+  list-style: none;
+
+}
+
+.pull-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
