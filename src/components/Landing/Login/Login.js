@@ -7,7 +7,7 @@ class Login extends Component {
       <div className="col-xs-12 col-s-12 col-md-6">
         <div className="thumbnail landing">
           <div className="caption">
-            <h1>Login</h1>
+            <h1 className="landingFontColor">Login</h1>
             <form className="navbar-form">
             <input className="form-control landingInput" placeholder="Username"/>
             <br />

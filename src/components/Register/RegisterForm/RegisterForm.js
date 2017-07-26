@@ -9,7 +9,7 @@ class RegisterForm extends Component {
           <div className="thumbnail registration col-sm-12">
 
 
-          <h1>Registration</h1>
+          <h1 className="registrationTitle">Registration</h1>
 
           <div className="form-group input-wrapper">
               <label>Username</label>
