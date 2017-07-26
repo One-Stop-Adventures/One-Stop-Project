@@ -1,7 +1,46 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom'
+import {registrationSubmit} from '../../../actions/register/Register'
 import '../Register.css'
 
 class RegisterForm extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+      confirm: ''
+    };
+  }
+
+  createUsername(e){
+    this.setState({username: e})
+
+  }
+  createEmail(e){
+    this.setState({email: e})
+
+  }
+  createPassword(e){
+    this.setState({password: e})
+
+  }
+  createConfirm(e){
+    this.setState({confirm: e})
+
+  }
+  submitRegistration(){
+    registrationSubmit(this.state)
+    .then(response => {
+      console.log(response)
+      let username = response.data.username
+      this.props.history.push(`dashboard/${username}`)
+    })
+
+  }
+
   render(){
     return (
       <div className="registerBackground">
@@ -13,24 +52,24 @@ class RegisterForm extends Component {
 
           <div className="form-group input-wrapper">
               <label>Username</label>
-              <input className="form-control register-textbox" placeholder="Username" />
+              <input onChange={e => this.createUsername(e.target.value)} className="form-control register-textbox" placeholder="Username" />
           </div>
           <div className="form-group input-wrapper">
               <label>Email</label>
-              <input type="email" className="form-control register-textbox" placeholder="Email" />
+              <input onChange={e => this.createEmail(e.target.value)} type="email" className="form-control register-textbox" placeholder="Email" />
           </div>
 
           <div className="form-group input-wrapper">
                 <label>Password</label>
-                <input className="form-control register-textbox" placeholder="Password" />
+                <input onChange={e => this.createPassword(e.target.value)} type="password" className="form-control register-textbox" placeholder="Password" />
           </div>
 
           <div className="form-group input-wrapper">
                 <label>Confirm Password</label>
-                <input type="password" className="form-control register-textbox" placeholder="Confirm Password" />
+                <input onChange={e => this.createConfirm(e.target.value)} type="password" className="form-control register-textbox" placeholder="Confirm Password" />
           </div>
 
-          <button type="submit" className="btn btn-default">Sign Up!</button>
+          <button onClick={() => this.submitRegistration()}type="submit" className="btn btn-default">Sign Up!</button>
 
 
           </div>
@@ -40,4 +79,4 @@ class RegisterForm extends Component {
   }
 }
 
-export default RegisterForm
+export default withRouter(RegisterForm)
