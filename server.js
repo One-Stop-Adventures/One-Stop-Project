@@ -10,6 +10,7 @@ const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const LocalStrategy = require('passport-local').Strategy;
+const logout = require ('express-passport-logout')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
@@ -43,7 +44,6 @@ app.post('/login', function(req, res, next) {
 
 passport.use( new LocalStrategy(
   function ( username, password, done ){
-    console.log(username, password)
     db.findOne([username])
     .then(users => {
       if ( !users.length ) {
@@ -72,7 +72,15 @@ passport.deserializeUser(function(obj, done) {
 	console.log('this is the deserialized user: ', obj);
   done(null, obj);
 });
-//End of Passport Local
+
+//Passport Log Out
+app.get('/logout', function(req, res){
+  
+  req.logout();
+  console.log('Logged Out')
+  res.redirect('/');
+
+});
 
 
 //landing.js is where connect to frontend
