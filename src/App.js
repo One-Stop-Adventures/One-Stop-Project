@@ -25,7 +25,7 @@ class App extends Component {
           <Route path='/register' component={Register} />
           <Route path='/dashboard/:username' component={Dashboard} />
         </Switch>
-        <Footer />
+      
       </div>
     );
   }
