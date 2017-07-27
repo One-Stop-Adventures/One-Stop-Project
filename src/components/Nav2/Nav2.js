@@ -22,6 +22,7 @@ const Nav2 = () => {
             <li><Link to='About'>About</Link></li>
             <li><Link to='Blog'>Blog</Link></li>
             <li><Link to='Profile'>Profile</Link></li>
+
           </ul>
         </div>
     </div>

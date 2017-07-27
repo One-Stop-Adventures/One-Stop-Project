@@ -5,6 +5,7 @@ import About from './components/About/About'
 import Blog from './components/Blog/Blog'
 import Shop from './components/Shop/Shop'
 import Footer from './components/Footer/Footer'
+import Profile from './components/Profile/Profile'
 
 import Register from './components/Register/Register'
 import Dashboard from './components/Dashboard/Dashboard'
