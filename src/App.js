@@ -9,7 +9,7 @@ import Profile from './components/Profile/Profile'
 
 import Register from './components/Register/Register'
 import Dashboard from './components/Dashboard/Dashboard'
-import Profile from './components/Profile/Profile'
+
 
 
 class App extends Component {
