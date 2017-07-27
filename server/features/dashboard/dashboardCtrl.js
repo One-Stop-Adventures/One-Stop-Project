@@ -45,7 +45,7 @@ module.exports = {
         .catch((err) => {
             res.status(500).json(err)
         })
-    }
+    },
 
 
     addToDo: function( req, res, next ){
