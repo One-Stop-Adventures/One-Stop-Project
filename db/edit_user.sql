@@ -6,5 +6,6 @@ SET username = $2,
     last_name = $6,
     city = $7,
     state = $8,
-    profile_pic = $9,
-WHERE id = $1;
+    profile_pic = $9
+WHERE id = $1
+RETURNING *;
