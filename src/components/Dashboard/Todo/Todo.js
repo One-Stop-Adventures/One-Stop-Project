@@ -1,36 +1,43 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {addItem} from '../../../ducks/todo'
 
 
 
 
 class ToDo extends Component{
+  constructor(){
+    super()
+    this.state = {
+      item: ''
+    }
+    this.updateNewItem = this.updateNewItem.bind(this)
+    this.addNewItem = this.addNewItem.bind(this)
+  }
+  updateNewItem(e){
+    this.setState({item: e.target.value})
+  }
+  addNewItem(){
+    this.props.addItem(this.state.item)
+    console.log('New Item Added')
+    this.setState({item: ''})
+  }
   render(){
+    const toDoItems = this.props.items.map(item=>{
+      return(
+        <li className='list-group-item'>{item}</li>
+      )
+    })
     return(
       <div className='col-md-4 todo-wrapper'>
+        <h3>To Do: </h3>
         <ul className="list-group col-md-12 todo">
-          <li className="list-group-item">Cras justo odio</li>
-          <li className="list-group-item">Dapibus ac facilisis in</li>
-          <li className="list-group-item">Morbi leo risus</li>
-          <li className="list-group-item">Porta ac consectetur ac</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-          <li className="list-group-item">Vestibulum at eros</li>
+          {toDoItems}
         </ul>
         <div className="input-group todo-input-wrapper">
-          <input type="text" className="form-control todo-input" placeholder="Add an item" />
+          <input value={this.state.item} onChange={this.updateNewItem} type="text" className="form-control todo-input" placeholder="Add an item" />
           <span className="input-group-btn">
-            <button className="btn btn-default todo-input" type="button">Add</button>
+            <button onClick={this.addNewItem} className="btn btn-default todo-input" type="button">Add</button>
           </span>
         </div>
       </div>
@@ -38,4 +45,13 @@ class ToDo extends Component{
   }
 }
 
-export default ToDo;
+function mapStateToProps(state){
+  return {
+    items: state.todo.items
+  }
+}
+const mapDispatchToProps = {
+  addItem
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDo);
