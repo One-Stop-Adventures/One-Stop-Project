@@ -1,28 +1,33 @@
 .landingContainer{
-  background: url('../../img/landingBg.jpg') no-repeat center center;
+  background: url('../../img/landingBg.jpg') no-repeat center center fixed;
   background-size: cover;
 }
-.thumbnail {
-  margin-left: 50px;
-  margin-right: 50px;
+.landing {
+  margin-left: 80px;
+  margin-right: 80px;
   height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.3);
+}
 
+.landingFontColor{
+  color: white;
 }
-.thumbnail h1{
-  color: #fff;
-}
-.thumbnail input{
+
+.landingInput{
   margin-bottom: 10px;
   text-align: center;
   border-radius: 5px;
 }
 
-.row {
+.landingRow {
   height: calc(100vh - 80px);
   text-align: center;
   margin-top: 15%;
+}
+
+.loginUsername {
+  margin-bottom: 5px;
 }

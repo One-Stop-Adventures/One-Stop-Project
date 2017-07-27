@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 // import history from '../../../history'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import "../Landing.css"
 
 import {UserLogin} from '../../../actions/Login/Login'
@@ -40,15 +39,17 @@ class Login extends Component {
     console.log(withRouter)
     return (
       <div className="col-xs-12 col-s-12 col-md-6">
-        <div className="thumbnail">
+        <div className="thumbnail landing">
           <div className="caption">
-            <h1>Login</h1>
+            <h1 className="landingFontColor">Login</h1>
             <form className="navbar-form">
-            <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control" placeholder="Username"/>
+
+
+            <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control loginUsername" placeholder="Username"/>
             <br />
-            <input onChange={(e)=>this.updatePassword(e.target.value)} className="form-control" placeholder="Password" type='password'/>
+            <input onChange={(e)=>this.updatePassword(e.target.value)} className="form-control " placeholder="Password" type='password'/>
             </form>
-            <p><a onClick={()=>this.submitLogin()} className="btn btn-default btn-sm" role="button">Login</a> <a className="btn btn-default btn-sm" role="button">Sign-Up</a></p>
+            <p><a onClick={()=>this.submitLogin()} className="btn btn-default btn-sm" role="button">Login</a> <Link to="/register" className="btn btn-default btn-sm" role="button">Sign-Up</Link></p>
           </div>
         </div>
       </div>
