@@ -44,7 +44,7 @@ app.post('/login', function(req, res, next) {
 
 passport.use( new LocalStrategy(
   function ( username, password, done ){
-    db.findOne([username])
+    db.find_user([username])
     .then(users => {
       if ( !users.length ) {
         return done( null, false, { message: 'Incorrect Username' });

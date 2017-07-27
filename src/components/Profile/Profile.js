@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react'
 import Nav2 from '../Nav2/Nav2'
 import Bio from './Bio/Bio'
@@ -14,5 +15,6 @@ class Profile extends Component {
     )
   }
 }
+
 
 export default Profile
