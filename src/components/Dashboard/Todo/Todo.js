@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addItem} from '../../../ducks/todo'
-
+import {deleteItem} from '../../../ducks/todo'
 
 
 
@@ -17,15 +17,20 @@ class ToDo extends Component{
   updateNewItem(e){
     this.setState({item: e.target.value})
   }
-  addNewItem(){
+  addNewItem(event){
+    event.preventDefault();
     this.props.addItem(this.state.item)
     console.log('New Item Added')
     this.setState({item: ''})
   }
+  deleteItem(item){
+    console.log('hello')
+    this.props.deleteItem(item)
+  }
   render(){
-    const toDoItems = this.props.items.map(item=>{
+    const toDoItems = this.props.items.map((item, index)=>{
       return(
-        <li className='list-group-item'>{item}</li>
+        <li onClick={()=>{this.deleteItem({index})}} className='list-group-item'>{item}<i className="fa fa-check fa-lg pull-right trashButton" aria-hidden="true"></i></li>
       )
     })
     return(
@@ -34,12 +39,12 @@ class ToDo extends Component{
         <ul className="list-group col-md-12 todo">
           {toDoItems}
         </ul>
-        <div className="input-group todo-input-wrapper">
+        <form onSubmit={this.addNewItem} className="input-group todo-input-wrapper">
           <input value={this.state.item} onChange={this.updateNewItem} type="text" className="form-control todo-input" placeholder="Add an item" />
           <span className="input-group-btn">
             <button onClick={this.addNewItem} className="btn btn-default todo-input" type="button">Add</button>
           </span>
-        </div>
+        </form>
       </div>
     )
   }
@@ -51,7 +56,8 @@ function mapStateToProps(state){
   }
 }
 const mapDispatchToProps = {
-  addItem
+  addItem,
+  deleteItem
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToDo);
