@@ -10,7 +10,7 @@ class Blog extends Component{
       <Nav2 />
 
       <header className="intro-header blog-header-pic">
-      <div className="container">
+      <div className="container-fluid">
           <div className="row">
               <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                   <div className="site-heading">
@@ -25,6 +25,11 @@ class Blog extends Component{
 
       <div className="container">
               <div className="row">
+              <button className="btn btn-default btn-sm pull-right saved-trips-edit-button"><i className="fa fa-trash" aria-hidden="true"></i></button>
+              <button className="btn btn-default btn-sm pull-right saved-trips-edit-button"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+              <button className="btn btn-default btn-sm pull-right saved-trips-edit-button"><i className="fa fa-plus" aria-hidden="true"></i></button>
+
+
                   <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
                       <div className="post-preview">
