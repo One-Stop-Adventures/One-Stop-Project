@@ -9,7 +9,7 @@ class Landing extends Component{
     return (
       <div className="landingContainer">
         <Nav1 />
-        <div className="row">
+        <div className="row landingRow">
           <Login />
           <GetStarted />
         </div>

@@ -71,6 +71,7 @@ passport.use(new LocalStrategy(function (username, password, done) {
 passport.serializeUser(function (user, done) {
     console.log('this is the serialized user: ', user);
     done(null, user);
+
 });
 
 passport.deserializeUser(function (obj, done) {
