@@ -130,12 +130,12 @@ app.get("/auth/facebook/callback", function (req, res, next) {
             req
                 .logIn(user, function (err) {
                     if (err) {
-                        return res.redirec('http://localhost:4001/error')
+                        return res.redirect('http://localhost:4001/error')
                     }
                     if (info.newUser) {
-                        return res.redirec('http://localhost:4000/welcome/' + req.user.id)
+                        return res.redirect('http://localhost:4000/welcome/' + req.user.id)
                     }
-                    return res.redirec('http://localhost:4001/profile/' + req.user.id)
+                    return res.redirect('http://localhost:4001/profile/' + req.user.id)
             });
 
         })(req, res, next);
@@ -181,12 +181,12 @@ app.get('/auth/google/callback', function (req, res, next) {
             req
                 .logIn(user, function (err) {
                     if (err) {
-                        return res.redirec('http://localhost:4001/error')
+                        return res.redirect('http://localhost:4001/error')
                     }
                     if (info.newUser) {
-                        return res.redirec('http://localhost:4000/welcome/' + req.user.id)
+                        return res.redirect('http://localhost:4000/welcome/' + req.user.id)
                     }
-                    return res.redirec('http://localhost:4001/profile/' + req.user.id)
+                    return res.redirect('http://localhost:4001/profile/' + req.user.id)
                 });
         })(req, res, next);
 });
