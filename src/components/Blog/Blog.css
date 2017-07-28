@@ -1,0 +1,20 @@
+.blog-header-pic {
+  margin: 0;
+  height: 400px;
+  background: url('../../img/blogpic1.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.site-heading {
+  margin-top: 15%;
+  color: white;
+  text-align: center;
+}
+
+.blog-title {
+  font-size: 50px;
+}
+
+.subheading {
+  font-size: 20px;
+}
