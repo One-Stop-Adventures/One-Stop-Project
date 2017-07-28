@@ -38,6 +38,7 @@ class Login extends Component {
   render(){
     console.log(withRouter)
     return (
+
       <div className="col-xs-12 col-s-12 col-md-6">
         <div className="thumbnail landing">
           <div className="caption">
