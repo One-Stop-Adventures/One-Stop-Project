@@ -9,13 +9,13 @@ module.exports = app => {
     app.get('/api/dashboard/:trip_id/meal/:meal_id', dashboardCtrl.getMeal);
     app.delete('/api/dashboard/:trip_id/meal/:meal_id', dashboardCtrl.deleteMeal);
 
-//Todo Endpoints  
+//Todo Endpoints
     app.post('/api/dashboard/:trip_id/todo', dashboardCtrl.addToDo)
-    app.delete('/api/dashboard/:trip_id/todo', dashboardCtrl.deleteToDo)
+    app.delete('/api/dashboard/:todo_id/todo', dashboardCtrl.deleteToDo)
     app.get('/api/dashboard/:trip_id/todo', dashboardCtrl.getToDo)
 //Packing List Endpoints
     app.post('/api/dashboard/:trip_id/packingList', dashboardCtrl.addPackItem)
     app.delete('/api/dashboard/:trip_id/packingList/:item_id', dashboardCtrl.deletePackItem)
     app.get('/api/dashboard/:trip_id/packingList', dashboardCtrl.getPackItems)
-    
+
 }

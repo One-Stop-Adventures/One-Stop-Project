@@ -114,8 +114,8 @@ module.exports = {
     getPackItems: function( req, res, next ){
         req.app.get( 'db' )
             .get_pack_items([ req.params.trip_id ])
-            .then(() => {
-                res.status( 200 ).json( 'Success' )
+            .then((items) => {
+                res.status( 200 ).json( items )
             })
             .catch(( err ) => {
                 console.log( err )
