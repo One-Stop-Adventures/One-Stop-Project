@@ -2,6 +2,10 @@ module.exports = {
 
 //Meals endpoints
     createMeal: function (req, res, next) {
+
+        console.log(req.params);
+
+
         req.app.get('db')
         .create_meal([req.params.trip_id, req.body.item, req.body.meal_time, req.body.meal_day])
         .then((meal) => {
@@ -56,7 +60,7 @@ module.exports = {
             })
             .catch(( err ) =>{
                 console.log( err )
-                res.status(500).json( err ) 
+                res.status(500).json( err )
             })
     },
 
