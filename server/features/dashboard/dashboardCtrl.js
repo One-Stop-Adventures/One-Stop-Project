@@ -2,10 +2,8 @@ module.exports = {
 
 //Meals endpoints
     createMeal: function (req, res, next) {
-        console.log(req.params);
-        
         req.app.get('db')
-        .create_meal([req.params.id, req.body.item, req.body.meal_time, req.body.meal_day])
+        .create_meal([req.params.trip_id, req.body.item, req.body.meal_time, req.body.meal_day])
         .then((meal) => {
             console.log('Meal Created!')
             res.status(200).json(meal)
@@ -17,7 +15,7 @@ module.exports = {
     },
     getMeal: function (req, res, next) {
         req.app.get('db')
-        .read_meal([req.params.id])
+        .read_meal([req.params.meal_id])
         .then((meal) => {
             console.log('getMeal touched');
             res.status(200).json(meal)
@@ -28,7 +26,7 @@ module.exports = {
     },
     getMeals: function (req, res, next) {
         req.app.get('db')
-        .read_meals()
+        .read_meals([ req.params.trip_id ])
         .then((meals) => {
             console.log('getMeals touched')
             res.status(200).json(meals)
@@ -39,7 +37,7 @@ module.exports = {
     },
     deleteMeal: function (req, res, next) {
         req.app.get('db')
-        .delete_meal([req.params.id])
+        .delete_meal([req.params.meal_id])
         .then(() => {
             res.status(200).json('Meal Deleted')
         })
@@ -51,7 +49,7 @@ module.exports = {
 //To-do endpoints
     addToDo: function( req, res, next ){
         req.app.get( 'db' )
-            .add_to_do([ req.params.id, req.body.item ])
+            .add_to_do([ req.params.trip_id, req.body.item ])
             .then(( todo ) =>{
                 console.log( todo )
                 res.status( 200 ).json( todo )
@@ -65,7 +63,7 @@ module.exports = {
     deleteToDo: function ( req, res, next){
         req.app.get( 'db' )
             //Currently, id is set to be hard coded. To-do id needs to be passed on to the list.
-            .delete_to_do([ req.params.id, req.body.id ])
+            .delete_to_do([ req.params.todo_id ])
             .then(() => {
                 res.status( 200 ).json( 'success' )
             })
@@ -76,7 +74,7 @@ module.exports = {
     },
     getToDo: function( req, res, next ){
         req.app.get( 'db' )
-            .get_to_do([ req.params.id ])
+            .get_to_do([ req.params.trip_id ])
             .then(( todos ) => {
                 res.status( 200 ).json( todos )
             })
@@ -89,7 +87,7 @@ module.exports = {
 //Packing List Endpoints
     addPackItem: function( req, res, next ) {
         req.app.get( 'db' )
-            .add_pack_item([ req.params.id, req.body.item ])
+            .add_pack_item([ req.params.trip_id, req.body.item ])
             .then(( item ) => {
                 res.status( 200 ).json( item )
             })
@@ -111,7 +109,7 @@ module.exports = {
     },
     getPackItems: function( req, res, next ){
         req.app.get( 'db' )
-            .get_pack_items([ req.params.id ])
+            .get_pack_items([ req.params.trip_id ])
             .then(() => {
                 res.status( 200 ).json( 'Success' )
             })
