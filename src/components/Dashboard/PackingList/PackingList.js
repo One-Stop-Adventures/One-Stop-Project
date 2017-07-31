@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addPackingItem} from '../../../ducks/packinglist'
 import {deletePackingItem} from '../../../ducks/packinglist'
+import {addPackingListItem} from '../../../actions/packingListService'
+import {fetchPackingItem} from '../../../ducks/packinglist'
+import {getPackingListItems} from '../../../actions/packingListService'
 
 class PackingList extends Component{
   constructor(){
@@ -18,19 +21,27 @@ class PackingList extends Component{
   addNewItem(event){
     event.preventDefault()
     console.log(this.state.item)
+    let packingListObj={
+      item: this.state.item,
+      id: this.props.dashboardParams
+    }
+    addPackingListItem(packingListObj)
     this.props.addPackingItem(this.state.item)
-    console.log('New Item Added')
     this.setState({item: ''})
   }
   deleteItem(item){
     console.log('hello')
     this.props.deletePackingItem(item)
   }
+  componentWillMount(){
+    const promise = getPackingListItems(this.props.dashboardParams)
+    this.props.fetchPackingItem(promise)
+  }
   render(){
     const packingItems = this.props.packingItems.map((item, index)=>{
       return(
         <div>
-          <li className='list-group-item'>{item}<i onClick={()=>{this.deleteItem({index})}}  className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i></li>
+          <li className='list-group-item'>{item.item}<i onClick={()=>{this.deleteItem({index})}}  className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i></li>
         </div>
       )
     })
@@ -58,7 +69,8 @@ function mapStateToProps(state){
 }
 const mapDispatchToProps = {
   addPackingItem,
-  deletePackingItem
+  deletePackingItem,
+  fetchPackingItem
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PackingList)

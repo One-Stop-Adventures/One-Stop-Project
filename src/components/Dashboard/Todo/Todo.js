@@ -5,6 +5,7 @@ import {fetchTodo} from '../../../ducks/todo'
 import {deleteItem} from '../../../ducks/todo'
 import {addTodo} from '../../../actions/todoService/todoService'
 import {getTodos} from '../../../actions/todoService/todoService'
+import {deleteTodos} from '../../../actions/todoService/todoService'
 
 
 class ToDo extends Component{
@@ -26,22 +27,21 @@ class ToDo extends Component{
       item: this.state.item,
       id: this.props.dashboardParams
     }
-    const addPromise = addTodo(todoObj)
+    addTodo(todoObj)
     this.props.addItem(this.state.item)
   }
-  deleteItem(item){
-    console.log('hello')
-    this.props.deleteItem(item)
+  deleteItem(item, index){
+    deleteTodos(item.item.id)
+    this.props.deleteItem(index)
   }
   componentWillMount(){
     const promise = getTodos(this.props.dashboardParams)
     this.props.fetchTodo(promise)
   }
   render(){
-    console.log(this.props.items)
     const toDoItems = this.props.items.map((item, index)=>{
       return(
-        <li onClick={()=>{this.deleteItem({index})}} className='list-group-item'>{item}<i className="fa fa-check fa-lg pull-right trashButton" aria-hidden="true"></i></li>
+        <li key={item.id} className='list-group-item'>{item.item}<i onClick={()=>{this.deleteItem({item}, {index})}} className="fa fa-check fa-lg pull-right trashButton" aria-hidden="true"></i></li>
       )
     })
     return(

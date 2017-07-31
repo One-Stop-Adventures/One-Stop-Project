@@ -11,3 +11,7 @@ export function addTodo(newTodo){
 export function getTodos(id){
   return axios.get(`/api/dashboard/${id}/todo`)
 }
+
+export function deleteTodos(id){
+  return axios.delete(`/api/dashboard/${id}/todo`)
+}
