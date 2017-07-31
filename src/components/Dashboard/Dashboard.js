@@ -11,6 +11,7 @@ import Meals from './Meals/Meals'
 import './Dashboard.css'
 
 class Dashboard extends Component{
+
   render(){
     return(
       <div>
