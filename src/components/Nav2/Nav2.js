@@ -14,7 +14,7 @@ const Nav2 = () => {
           Menu <i className="fa fa-bars"></i>
         </button>
 
-        <Link to='/' className="navbar-brand"><i className="fa fa-home fa-pulse fa-fw"></i></Link>
+        <Link to='/' className="navbar-brand"><i className="fa fa-home fa-fw"></i></Link>
         </div>
 
 
