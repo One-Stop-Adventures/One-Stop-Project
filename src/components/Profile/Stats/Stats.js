@@ -9,7 +9,7 @@ render(){
   <div>
     <div className="container stat-container">
     <div className="row">
-    <h1 className="stat-title">Stats</h1>
+    <h1 className="stat-title">Statistics</h1>
     <ul className="list-group stat-box">
       <li className="list-group-item">Cras justo odio</li>
       <li className="list-group-item">Dapibus ac facilisis in</li>

@@ -18,3 +18,15 @@
 .subheading {
   font-size: 20px;
 }
+
+.post-body {
+  resize: none;
+}
+
+.post-submit {
+  margin-right: 5px;
+}
+
+.add-title {
+  margin-top: 10px;
+}
