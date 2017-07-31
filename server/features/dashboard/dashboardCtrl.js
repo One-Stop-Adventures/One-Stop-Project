@@ -3,7 +3,7 @@ module.exports = {
 //Meals endpoints
     createMeal: function (req, res, next) {
         console.log(req.params);
-        
+
         req.app.get('db')
         .create_meal([req.params.id, req.body.item, req.body.meal_time, req.body.meal_day])
         .then((meal) => {
@@ -51,14 +51,14 @@ module.exports = {
 //To-do endpoints
     addToDo: function( req, res, next ){
         req.app.get( 'db' )
-            .add_to_do([ req.params.id, req.body.item ])
+            .add_to_do([ req.params.trip_id, req.body.item ])
             .then(( todo ) =>{
                 console.log( todo )
                 res.status( 200 ).json( todo )
             })
             .catch(( err ) =>{
                 console.log( err )
-                res.status(500).json( err ) 
+                res.status(500).json( err )
             })
     },
 
@@ -76,7 +76,7 @@ module.exports = {
     },
     getToDo: function( req, res, next ){
         req.app.get( 'db' )
-            .get_to_do([ req.params.id ])
+            .get_to_do([ req.params.trip_id ])
             .then(( todos ) => {
                 res.status( 200 ).json( todos )
             })

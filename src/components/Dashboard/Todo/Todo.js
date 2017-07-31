@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addItem} from '../../../ducks/todo'
+import {fetchTodo} from '../../../ducks/todo'
 import {deleteItem} from '../../../ducks/todo'
-
+import {addTodo} from '../../../actions/todoService/todoService'
+import {getTodos} from '../../../actions/todoService/todoService'
 
 
 class ToDo extends Component{
   constructor(){
     super()
     this.state = {
-      item: ''
+      item: '',
+      id: null
     }
     this.updateNewItem = this.updateNewItem.bind(this)
     this.addNewItem = this.addNewItem.bind(this)
@@ -19,15 +22,23 @@ class ToDo extends Component{
   }
   addNewItem(event){
     event.preventDefault();
+    let todoObj = {
+      item: this.state.item,
+      id: this.props.dashboardParams
+    }
+    const addPromise = addTodo(todoObj)
     this.props.addItem(this.state.item)
-    console.log('New Item Added')
-    this.setState({item: ''})
   }
   deleteItem(item){
     console.log('hello')
     this.props.deleteItem(item)
   }
+  componentWillMount(){
+    const promise = getTodos(this.props.dashboardParams)
+    this.props.fetchTodo(promise)
+  }
   render(){
+    console.log(this.props.items)
     const toDoItems = this.props.items.map((item, index)=>{
       return(
         <li onClick={()=>{this.deleteItem({index})}} className='list-group-item'>{item}<i className="fa fa-check fa-lg pull-right trashButton" aria-hidden="true"></i></li>
@@ -57,7 +68,8 @@ function mapStateToProps(state){
 }
 const mapDispatchToProps = {
   addItem,
-  deleteItem
+  deleteItem,
+  fetchTodo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToDo);

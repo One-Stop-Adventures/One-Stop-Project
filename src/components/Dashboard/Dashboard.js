@@ -11,7 +11,6 @@ import Meals from './Meals/Meals'
 import './Dashboard.css'
 
 class Dashboard extends Component{
-
   render(){
     return(
       <div>
@@ -20,7 +19,7 @@ class Dashboard extends Component{
         <h3>Lets plan your next adventure!</h3>
         <div className='dashboardComponents'>
           <DashboardWeather />
-          <ToDo />
+          <ToDo dashboardParams={this.props.match.params.id}/>
           <Calendar />
           <div>
             <PackingList />
