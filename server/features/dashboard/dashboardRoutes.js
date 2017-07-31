@@ -3,17 +3,17 @@ const dashboardCtrl = require('./dashboardCtrl');
 
 module.exports = app => {
 //Meals Endpoints
-    app.post('/api/dashboard/:id/meal', dashboardCtrl.createMeal);
-    app.get('/api/dashboard/meal', dashboardCtrl.getMeals);
-    app.get('/api/dashboard/:id/meal', dashboardCtrl.getMeal);
-    app.delete('/api/dashboard/:id/meal', dashboardCtrl.deleteMeal);
+    app.post('/api/dashboard/:trip_id/meal', dashboardCtrl.createMeal);
+    app.get('/api/dashboard/:trip_id/meal', dashboardCtrl.getMeals);
+    app.get('/api/dashboard/:trip_id/meal/:meal_id', dashboardCtrl.getMeal);
+    app.delete('/api/dashboard/:trip_id/meal/:meal_id', dashboardCtrl.deleteMeal);
 //Todo Endpoints  
-    app.post('/api/dashboard/:id/todo', dashboardCtrl.addToDo)
-    app.delete('/api/dashboard/:id/todo', dashboardCtrl.deleteToDo)
-    app.get('/api/dashboard/:id/todo', dashboardCtrl.getToDo)
+    app.post('/api/dashboard/:trip_id/todo', dashboardCtrl.addToDo)
+    app.delete('/api/dashboard/:trip_id/todo', dashboardCtrl.deleteToDo)
+    app.get('/api/dashboard/:trip_id/todo', dashboardCtrl.getToDo)
 //Packing List Endpoints
-    app.post('/api/dashboard/:id/packingList', dashboardCtrl.addPackItem)
-    app.delete('/api/dashboard/:id/packingList/:item_id', dashboardCtrl.deletePackItem)
-    app.get('/api/dashboard/:id/packingList', dashboardCtrl.getPackItems)
+    app.post('/api/dashboard/:trip_id/packingList', dashboardCtrl.addPackItem)
+    app.delete('/api/dashboard/:trip_id/packingList/:item_id', dashboardCtrl.deletePackItem)
+    app.get('/api/dashboard/:trip_id/packingList', dashboardCtrl.getPackItems)
     
 }
