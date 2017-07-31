@@ -21,10 +21,10 @@ class App extends Component {
           <Route path='/about' component={About} />
           <Route path='/blog' component={Blog} />
           <Route path='/shop' component={Shop} />
-          <Route path='/profile' component={Profile} />
+          <Route path='/profile/:id' component={Profile} />
 
           <Route path='/register' component={Register} />
-          <Route path='/dashboard/:username' component={Dashboard} />
+          <Route path='/dashboard/:id' component={Dashboard} />
         </Switch>
       
       </div>
