@@ -29,15 +29,15 @@ class Login extends Component {
         alert('Incorrect Username or Password. Please try again.')
       }
       else{
-        let username = response.data.username
-        console.log(username)
-        this.props.history.push(`/dashboard/${username}`)
+        let id = response.data.id
+        this.props.history.push(`/profile/${id}`)
       }
     })
   }
   render(){
     console.log(withRouter)
     return (
+
       <div className="col-xs-12 col-s-12 col-md-6">
         <div className="thumbnail landing">
           <div className="caption">

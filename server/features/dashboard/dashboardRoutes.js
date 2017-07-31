@@ -4,9 +4,11 @@ const dashboardCtrl = require('./dashboardCtrl');
 module.exports = app => {
 //Meals Endpoints
     app.post('/api/dashboard/:trip_id/meal', dashboardCtrl.createMeal);
+
     app.get('/api/dashboard/:trip_id/meal', dashboardCtrl.getMeals);
     app.get('/api/dashboard/:trip_id/meal/:meal_id', dashboardCtrl.getMeal);
     app.delete('/api/dashboard/:trip_id/meal/:meal_id', dashboardCtrl.deleteMeal);
+
 //Todo Endpoints  
     app.post('/api/dashboard/:trip_id/todo', dashboardCtrl.addToDo)
     app.delete('/api/dashboard/:trip_id/todo', dashboardCtrl.deleteToDo)

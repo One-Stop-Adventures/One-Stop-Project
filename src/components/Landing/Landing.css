@@ -1,6 +1,7 @@
 .landingContainer{
   background: url('../../img/landingBg.jpg') no-repeat center center fixed;
   background-size: cover;
+  
 }
 .landing {
   margin-left: 80px;

@@ -1,0 +1,12 @@
+.nav-custom{
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+
+}
+.nav-custom a{
+  font-size: 20px;
+}
+
+.nav-links:hover {
+  text-decoration: underline;
+}
