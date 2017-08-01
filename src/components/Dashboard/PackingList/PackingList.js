@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addPackingItem} from '../../../ducks/packinglist'
 import {deletePackingItem} from '../../../ducks/packinglist'
+import {addPackingListItem} from '../../../actions/packingListService'
+import {fetchPackingItem} from '../../../ducks/packinglist'
+import {getPackingListItems} from '../../../actions/packingListService'
+import {deletePackingListItem} from '../../../actions/packingListService'
 
 class PackingList extends Component{
   constructor(){
@@ -18,19 +22,28 @@ class PackingList extends Component{
   addNewItem(event){
     event.preventDefault()
     console.log(this.state.item)
-    this.props.addPackingItem(this.state.item)
-    console.log('New Item Added')
+    let packingListObj={
+      item: this.state.item,
+      id: this.props.dashboardParams
+    }
+    addPackingListItem(packingListObj)
+    this.props.addPackingItem(packingListObj.item)
     this.setState({item: ''})
   }
-  deleteItem(item){
-    console.log('hello')
-    this.props.deletePackingItem(item)
+  deleteItem(index, item){
+    console.log(item)
+    this.props.deletePackingItem(index)
+    deletePackingListItem(item.item.id)
+  }
+  componentWillMount(){
+    const promise = getPackingListItems(this.props.dashboardParams)
+    this.props.fetchPackingItem(promise)
   }
   render(){
     const packingItems = this.props.packingItems.map((item, index)=>{
       return(
-        <div>
-          <li className='list-group-item'>{item}<i onClick={()=>{this.deleteItem({index})}}  className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i></li>
+        <div key={index}>
+          <li className='list-group-item'>{item.item}<i onClick={()=>{this.deleteItem({index}, {item})}}  className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i></li>
         </div>
       )
     })
@@ -58,7 +71,8 @@ function mapStateToProps(state){
 }
 const mapDispatchToProps = {
   addPackingItem,
-  deletePackingItem
+  deletePackingItem,
+  fetchPackingItem
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PackingList)

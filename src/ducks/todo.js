@@ -1,13 +1,14 @@
 const initialState = {
-  items: []
+  items: [],
+  error: null
 }
 
 const ADD_ITEM = 'todo/ADD_ITEM'
 const DELETE_ITEM = 'todo/DELETE_ITEM'
-const FETCH_TODO = 'weather/FETCH_TODO'
-const FETCH_TODO_PENDING = 'weather/FETCH_TODO_PENDING'
-const FETCH_TODO_REJECTED = 'weather/FETCH_TODO_REJECTED'
-const FETCH_TODO_FULFILLED = 'weather/FETCH_TODO_FULFILLED'
+const FETCH_TODO = 'todo/FETCH_TODO'
+const FETCH_TODO_PENDING = 'todo/FETCH_TODO_PENDING'
+const FETCH_TODO_REJECTED = 'todo/FETCH_TODO_REJECTED'
+const FETCH_TODO_FULFILLED = 'todo/FETCH_TODO_FULFILLED'
 
 export function addItem(item){
   return{
@@ -36,8 +37,9 @@ export default function todoReducer(state=initialState, action){
     case DELETE_ITEM:
       return Object.assign({}, state, {items: [...state.items.slice(0, action.payload), ...state.items.slice(action.payload + 1)]})
     case FETCH_TODO_FULFILLED:
-      console.log(action.payload)
-      return Object.assign({}, state, {items: action.payload.data.map(item=>{return item.item})})
+      return Object.assign({}, state, {items: action.payload.data.map(item=>{return {item: item.item, id: item.id}})})
+    case FETCH_TODO_REJECTED:
+      return Object.assign({}, state, {error: action.payload})
     default:
       return state
   }

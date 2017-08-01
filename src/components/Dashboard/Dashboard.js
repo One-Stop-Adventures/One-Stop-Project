@@ -22,8 +22,8 @@ class Dashboard extends Component{
           <ToDo dashboardParams={this.props.match.params.id}/>
           <Calendar />
           <div>
-            <PackingList />
-            <Meals />
+            <PackingList dashboardParams={this.props.match.params.id} />
+            <Meals dashboardParams={this.props.match.params.id} />
           </div>
         </div>
       </div>
