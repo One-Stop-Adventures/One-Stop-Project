@@ -12,7 +12,7 @@ class Profile extends Component {
       <div>
       <Nav2 />
       <Bio />
-      <TripLogs />
+      <TripLogs profileParams={this.props.match.params.id}/>
       <Stats />
       </div>
     )
