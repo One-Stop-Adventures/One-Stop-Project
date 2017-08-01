@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
+import {fetchTrip} from '../../ducks/trip.js'
 
 import Nav2 from '../Nav2/Nav2'
 import DashboardWeather from './Weather/Weather'
@@ -11,13 +13,20 @@ import Meals from './Meals/Meals'
 import './Dashboard.css'
 
 class Dashboard extends Component{
+  componentWillMount(){
+    this.props.fetchTrip(this.props.match.params.id)
+  }
   render(){
+    const dashboardIntro = this.props.trip.map(trip=>{
+      return <h2>{trip.trip_name}!</h2>
+    })
     return(
       <div>
         <Nav2></Nav2>
         <div className="jumbotron">
-          <h1>Hello cNasty! Welcome to your dashboard!</h1>
-          <h3>Lets plan your next adventure!</h3>
+          <h1>Hello cNasty! Welcome to your  dashboard!</h1>
+          <h3>Lets plan your trip!</h3>
+          {dashboardIntro}
           <DashboardWeather className="weather"/>
         </div>
         <div className="container">
@@ -34,5 +43,13 @@ class Dashboard extends Component{
   }
 }
 
+function mapStateToProps(state){
+  return{
+    trip: state.trip.trips
+  }
+}
 
-export default Dashboard
+const mapDispatchToProps = {
+  fetchTrip
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
