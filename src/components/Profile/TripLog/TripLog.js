@@ -30,7 +30,7 @@ changeView(){
       ?
       <TripLogsChild changeView={this.changeView} />
       :
-      <NewTrip changeView={this.changeView}/>
+      <NewTrip profileParams={this.props.profileParams} changeView={this.changeView}/>
       }
 
 

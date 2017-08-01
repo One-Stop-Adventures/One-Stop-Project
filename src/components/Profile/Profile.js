@@ -13,8 +13,7 @@ class Profile extends Component {
       <Nav2 />
       <header className="profile-header-pic">
       <Bio />
-
-      <TripLogs />
+      <TripLogs profileParams={this.props.match.params.id}/>
       <Stats />
       </header>
       </div>

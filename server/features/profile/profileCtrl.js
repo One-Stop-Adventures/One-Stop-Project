@@ -1,6 +1,6 @@
 module.exports = {
 //Profile Endpoints
-    editProfile: function( req, res, next ){       
+    editProfile: function( req, res, next ){
         req.app.get('db')
             .edit_user([ req.params.id, req.body.username, req.body.password, req.body.email, req.body.first_name, req.body.last_name, req.body.city, req.body.state, req.body.profile_pic, req.body.birthday, req.body.bio ])
             .then(( user ) => {
@@ -22,7 +22,7 @@ module.exports = {
             })
     },
 
-//Trip Endpoints    
+//Trip Endpoints
     savedTrips: function( req, res, next ){
         req.app.get('db')
             .saved_trips([ req.params.id ])
@@ -35,10 +35,11 @@ module.exports = {
             })
     },
     createTrip: function( req, res, next ){
+        console.log(req.body)
         req.app.get('db')
             .create_trip([ req.params.id, req.body.trip_name, req.body.description, req.body.completed, req.body.start_date, req.body.end_date, req.body.location ])
             .then((trip) => {
-                res.status(200).json('Trip created!')
+                res.status(200).json(trip)
             })
             .catch(( err ) => {
                 console.log(err)
@@ -58,4 +59,3 @@ module.exports = {
     }
 
 }
-
