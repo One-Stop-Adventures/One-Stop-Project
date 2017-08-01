@@ -1,9 +1,8 @@
 .profile-pic {
     background-image: url('https://s3-eu-west-1.amazonaws.com/lynks-blog/wp-content/uploads/2016/10/11153439/rsz_1shutterstock_325243652.jpg');
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    margin-left: 30px;
+    height: 250px;
+    width: 250px;
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
@@ -12,6 +11,12 @@
     color: transparent;
     transition: all .3s ease;
     text-decoration: none;
+
+}
+
+.edit-profile-container {
+  display: flex;
+  align-items: center;
 }
 
 .profile-pic:hover {
@@ -28,6 +33,12 @@
     padding-bottom: 4.5em;
 }
 
+.pic-container{
+  display: flex;
+  justify-content: center;
+}
+
+
 .bio {
   padding-top: 12%;
 }
@@ -36,33 +47,51 @@
   margin-left: 10%;
   display: block;
   align-items: center;
+  text-align: center;
 }
 
 .demo-box {
-  right: 40px;
+  width: 200px;
 }
-
 
 
 .profile-info {
   align-content: center;
+  height: 40em;
   width: 80vw;
-  padding-top: 10px;
-  margin-right: 40px;
+  padding-top: -10px;
+  background-color: rgba(255, 255, 255);
+
 }
 
 .profile-view {
-  margin-top: 13px;
+  margin-top: 10px;
+  height: 22em;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-well{
   background-color: rgba(255, 255, 255, 0.7);
   height: 200px;
+  text-align: center;
+}
+
+.button-profile {
+display: inline;
 }
 
 .bio-box {
   margin-top: 10px;
   resize: none;
+  height: 10%;
+  width: 51em;
+  text-align: center;
+}
+
+.demo-bio {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .form-box-show {
@@ -71,6 +100,7 @@
 
 .bio-underline {
   text-decoration: underline;
+  font-size: 20px;
 }
 .bio-show {
   background-color: rgba(255, 255, 255, 0.7);
@@ -81,13 +111,18 @@
 .biography-box {
   margin-top: 10px;
   padding-top: 10px;
-  height: 114px;
+  height: 150px;
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  text-align: center;
 }
 
 .demo-box {
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.submit-profile-button{
+  margin-top: 0;
 }
 
 .saved-trips-edit-button {

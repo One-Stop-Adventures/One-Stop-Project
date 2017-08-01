@@ -53,7 +53,9 @@ class ToDo extends Component{
       <div className='col-xs-4 text-center'>
         <h3>To Do</h3>
         <ul className="list-group col-md-12 todo">
-          {toDoItems}
+          <li className="list-group-item meals-list-group">
+            {toDoItems}
+          </li>
         </ul>
         <form onSubmit={this.addNewItem} className="input-group todo-input-wrapper">
           <input value={this.state.item} onChange={this.updateNewItem} type="text" className="form-control todo-input" placeholder="Add an item" />

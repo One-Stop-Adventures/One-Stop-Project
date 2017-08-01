@@ -24,9 +24,11 @@ changeView(){
       <div className='bio'>
 
 
-        <div className="row profile-info">
+        <div className="container profile-info">
 
-        <div className="col-xs-6 col-md-4 prof-box">
+      <div className="pic-container">
+
+        <div className="prof-box">
         <a className="profile-pic">
           <div className="profile-pic">
           <span className="glyphicon glyphicon-camera cam-icon"></span>
@@ -34,7 +36,7 @@ changeView(){
           </div>
         </a>
         </div>
-
+</div>
 
         {
         this.state.view

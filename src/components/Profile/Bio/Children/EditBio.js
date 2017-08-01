@@ -44,53 +44,38 @@ class Editbio extends Component {
 
   render(){
     return(
-<div>
-      <div id="hidden">
-            <div className="col-xs-6 col-md-4 demo-box well">
+        <div className="edit-profile-container">
+            <div className="col-md-6 col-md-offset-3">
               <div className="form-group">
-                <label className="col-sm-4 control-label">First Name </label>
-                <div className="col-sm-7">
                   <input
                   onChange={this.updateFirst}
-                  value={this.state.firstName} className="form-control" placeholder="First Name" />
-                </div>
+                  value={this.state.firstName} className="form-control demo-bio" placeholder="First Name" />
               </div>
 
               <div className="form-group">
-                <label className="col-sm-4 control-label">Last Name </label>
-                <div className="col-sm-7">
                   <input
                   onChange={this.updateLast}
-                  value={this.state.lastName} className="form-control" placeholder="Last Name" />
-                </div>
+                  value={this.state.lastName} className="form-control demo-bio" placeholder="Last Name" />
               </div>
 
               <div className="form-group">
-                <label className="col-sm-4 control-label">Location </label>
-                <div className="col-sm-7">
                   <input
                   onChange={this.updateLocation}
-                  value={this.state.location} className="form-control" placeholder="Location" />
-                </div>
+                  value={this.state.location} className="form-control demo-bio" placeholder="Location" />
               </div>
 
               <div className="form-group">
-                <label className="col-sm-4 control-label">DOB </label>
-                <div className="col-sm-7">
                   <input
                   onChange={this.updateDob}
-                  value={this.state.dob} className="form-control" placeholder="Date Of Birth" />
-                </div>
+                  value={this.state.dob} className="form-control demo-bio" placeholder="Date Of Birth" />
+              </div>
+
+              <textarea className="form-group bio-box" rows="3" placeholder="Biography" value={this.state.bio} onChange={this.updateBio}></textarea>
+              <div className="form-group submit-profile-button">
+              <button onClick={this.submitUpdates} className="btn btn-default btn-xs submit-profile-button">Submit</button>
               </div>
             </div>
-
-            <div className="col-xs-6 col-md-4 well demo-box">
-              <label className="col-sm-4 control-label">Biography:</label>
-              <textarea className="form-control bio-box" rows="6" placeholder="Tell us about yourself!" value={this.state.bio} onChange={this.updateBio}></textarea>
-              <button onClick={this.submitUpdates} className="btn btn-default btn-sm pull-right submit-profile-button">Submit</button>
-            </div>
-      </div>
-</div>
+          </div>
     )
   }
 }
