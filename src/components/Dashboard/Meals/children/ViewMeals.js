@@ -13,11 +13,6 @@ class ViewMeals extends Component{
   render(){
     const mealsList = this.props.meals.map((meal, index)=>{
       return(
-
-          <div>  //REVIEW
-          <h4>Day {meal.day}</h4>
-          <ul className='list-group meals-list-group'>
-
           <div key={meal.day}>
           <h4>Day {meal.day}<i onClick={()=>{this.deleteMeal(meal.id, index)}} className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i><i className="fa fa-pencil pull-right" aria-hidden="true"></i></h4>
           <ul className='list-group'>
@@ -43,7 +38,7 @@ class ViewMeals extends Component{
 }
 
 function mapStateToProps(state){
-  return{
+  return {
     meals: state.meals.meals
   }
 }
@@ -52,5 +47,4 @@ const mapDispatchToProps = {
   fetchMeal,
   deleteMeal
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(ViewMeals)
