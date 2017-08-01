@@ -3,11 +3,11 @@ module.exports = {
 //Meals endpoints
     createMeal: function (req, res, next) {
 
-        console.log(req.params);
+        console.log(req.params, req.body);
 
 
         req.app.get('db')
-        .create_meal([req.params.trip_id, req.body.item, req.body.meal_time, req.body.meal_day])
+        .create_meal([req.params.trip_id, req.body.meal.day, req.body.meal.breakfast, req.body.meal.lunch, req.body.meal.dinner, req.body.meal.snack])
         .then((meal) => {
             console.log('Meal Created!')
             res.status(200).json(meal)
@@ -114,8 +114,8 @@ module.exports = {
     getPackItems: function( req, res, next ){
         req.app.get( 'db' )
             .get_pack_items([ req.params.trip_id ])
-            .then(() => {
-                res.status( 200 ).json( 'Success' )
+            .then((items) => {
+                res.status( 200 ).json( items )
             })
             .catch(( err ) => {
                 console.log( err )

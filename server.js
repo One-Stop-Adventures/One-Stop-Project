@@ -21,7 +21,7 @@ let db;
 massive(process.env.DATABASE_URL).then(dbInstance => {
     app.set('db', dbInstance)
     db = dbInstance
-});
+}).catch(err=>console.log(err));
 
 masterRoutes(app);
 
