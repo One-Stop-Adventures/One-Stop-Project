@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+
+import {fetchTrips} from '../../../../ducks/trip'
 
 class SavedTrips extends Component {
+  componentWillMount(){
+    this.props.fetchTrips(this.props.profileParams)
+  }
+  goToTrip(id){
+    this.props.history.push(`/dashboard/${id}`)
+  }
 render(){
+  console.log(this.props.trips)
+  const tripsList = this.props.trips.map(trip=>{
+    return <button onClick={()=>{this.goToTrip(trip.id)}} key={trip.id} type="button" className="list-group-item">{trip.trip_name}</button>
+  })
   return (
     <div>
     <div className="col-sm-6 list-group saved-trips well">
 
       <h2>Saved Trips</h2>
-      <button type="button" className="list-group-item">Cras justo odio</button>
-      <button type="button" className="list-group-item">Dapibus ac facilisis in</button>
-      <button type="button" className="list-group-item">Morbi leo risus</button>
-      <button type="button" className="list-group-item">Porta ac consectetur ac</button>
-      <button type="button" className="list-group-item">Vestibulum at eros</button>
+      {tripsList}
     </div>
     </div>
   )
@@ -19,4 +29,13 @@ render(){
 
 }
 
-export default SavedTrips;
+function mapStateToProps(state){
+  return{
+    trips: state.trip.trips
+  }
+}
+const mapDispatchToProps = {
+  fetchTrips
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SavedTrips))
