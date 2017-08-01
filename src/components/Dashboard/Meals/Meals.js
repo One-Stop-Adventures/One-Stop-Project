@@ -23,12 +23,12 @@ class Meals extends Component{
           this.state.viewMeals
           ?
           <div>
-          <ViewMeals />
+          <ViewMeals dashboardParams={this.props.dashboardParams} />
           <button onClick={this.changeView} className="btn btn-default todo-input col-xs-12" type="button">Add A Meal</button>
           </div>
           :
           <div>
-          <AddMeals changeView={this.changeView} />
+          <AddMeals dashboardParams={this.props.dashboardParams} changeView={this.changeView} />
           </div>
         }
       </div>

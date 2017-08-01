@@ -37,11 +37,16 @@ class ToDo extends Component{
   componentWillMount(){
     const promise = getTodos(this.props.dashboardParams)
     this.props.fetchTodo(promise)
+    promise.catch(err => {
+      console.log(err.data)
+    })
   }
   render(){
     const toDoItems = this.props.items.map((item, index)=>{
       return(
+      
         <li key={item.id} className='list-group-item'>{item.item}<i onClick={()=>{this.deleteItem({item}, {index})}} className="fa fa-check fa-lg pull-right trashButton" aria-hidden="true"></i></li>
+        
       )
     })
     return(
@@ -63,7 +68,8 @@ class ToDo extends Component{
 
 function mapStateToProps(state){
   return {
-    items: state.todo.items
+    items: state.todo.items,
+    error: state.todo.error
   }
 }
 const mapDispatchToProps = {

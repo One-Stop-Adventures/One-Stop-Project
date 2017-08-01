@@ -17,7 +17,6 @@ export function addPackingItem(item){
 }
 
 export function deletePackingItem(item){
-  console.log(item)
   return{
     type: DELETE_ITEM,
     payload: item.index
@@ -40,7 +39,6 @@ export default function packingListReducer(state=initialState, action){
     case DELETE_ITEM:
         return Object.assign({}, state, {packingItems: [...state.packingItems.slice(0, action.payload), ...state.packingItems.slice(action.payload + 1)]})
     case FETCH_PACKING_FULFILLED:
-          console.log(action.payload)
           return Object.assign({}, state, {packingItems: action.payload.data.map(item=>{return {item: item.item, id: item.id}})})
     default:
       return state

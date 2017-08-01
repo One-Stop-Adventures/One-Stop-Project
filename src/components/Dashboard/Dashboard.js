@@ -23,7 +23,7 @@ class Dashboard extends Component{
           <Calendar />
           <div>
             <PackingList dashboardParams={this.props.match.params.id} />
-            <Meals />
+            <Meals dashboardParams={this.props.match.params.id} />
           </div>
         </div>
       </div>
