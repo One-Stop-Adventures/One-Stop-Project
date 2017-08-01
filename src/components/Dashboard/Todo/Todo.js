@@ -50,15 +50,15 @@ class ToDo extends Component{
       )
     })
     return(
-      <div className='col-md-4 todo-wrapper'>
-        <h3>To Do: </h3>
+      <div className='col-xs-4 text-center'>
+        <h3>To Do</h3>
         <ul className="list-group col-md-12 todo">
           {toDoItems}
         </ul>
         <form onSubmit={this.addNewItem} className="input-group todo-input-wrapper">
           <input value={this.state.item} onChange={this.updateNewItem} type="text" className="form-control todo-input" placeholder="Add an item" />
           <span className="input-group-btn">
-            <button onClick={this.addNewItem} className="btn btn-default todo-input" type="button">Add</button>
+            <button onClick={this.addNewItem} className="btn btn-success todo-input" type="button">Add</button>
           </span>
         </form>
       </div>

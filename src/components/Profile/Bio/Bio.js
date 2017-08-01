@@ -21,12 +21,10 @@ changeView(){
 
   render(){
     return (
-      <div>
+      <div className='bio'>
 
-      <div className="container-fluid profile-box">
-        <div className="row">
-          <form className="form-horizontal form-box-show">
-            <div className="row profile-info">
+
+        <div className="row profile-info">
 
         <div className="col-xs-6 col-md-4 prof-box">
         <a className="profile-pic">
@@ -36,6 +34,8 @@ changeView(){
           </div>
         </a>
         </div>
+
+
         {
         this.state.view
         ?
@@ -48,10 +48,6 @@ changeView(){
 
 
         </div>
-      </form>
-
-      </div>
-      </div>
 
 
 

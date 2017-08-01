@@ -13,9 +13,15 @@ class ViewMeals extends Component{
   render(){
     const mealsList = this.props.meals.map((meal, index)=>{
       return(
+
+          <div>  //REVIEW
+          <h4>Day {meal.day}</h4>
+          <ul className='list-group meals-list-group'>
+
           <div key={meal.day}>
           <h4>Day {meal.day}<i onClick={()=>{this.deleteMeal(meal.id, index)}} className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i><i className="fa fa-pencil pull-right" aria-hidden="true"></i></h4>
           <ul className='list-group'>
+
             <li className='list-group-item'>Breakfast: {meal.breakfast}</li>
             <li className='list-group-item'>Lunch: {meal.lunch}</li>
             <li className='list-group-item'>Dinner: {meal.dinner}</li>
@@ -27,7 +33,7 @@ class ViewMeals extends Component{
     return(
       <div>
       <ul className="list-group col-xs-12 todo">
-      <li className="list-group-item">
+      <li className="list-group-item meals-list-group">
         {mealsList}
       </li>
       </ul>

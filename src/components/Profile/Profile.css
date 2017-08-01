@@ -1,0 +1,8 @@
+
+.profile-header-pic {
+
+  margin: 0;
+  height: 20em;
+  background: url('../../img/profile.jpg') no-repeat center center fixed;
+  background-size: cover;
+}

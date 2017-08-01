@@ -48,7 +48,7 @@ class PackingList extends Component{
       )
     })
     return(
-      <div className='col-xs-6 dashboardLower'>
+      <div className='col-xs-4 text-center'>
       <h3>Packing List</h3>
       <ul className="list-group col-xs-12 todo">
         {packingItems}
@@ -56,7 +56,7 @@ class PackingList extends Component{
       <form onSubmit={this.addNewItem} className="input-group todo-input-wrapper">
         <input value={this.state.item} onChange={this.updateNewItem} type="text" className="form-control todo-input" placeholder="Add an item" />
         <span className="input-group-btn">
-          <button onClick={this.addNewItem} className="btn btn-default todo-input" type="button">Add</button>
+          <button onClick={this.addNewItem} className="btn btn-success todo-input" type="button">Add</button>
         </span>
       </form>
       </div>

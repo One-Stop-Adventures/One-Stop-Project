@@ -15,17 +15,21 @@ class Dashboard extends Component{
     return(
       <div>
         <Nav2></Nav2>
-        <h1>Hello cNasty! Welcome to your dashboard!</h1>
-        <h3>Lets plan your next adventure!</h3>
-        <div className='dashboardComponents'>
-          <DashboardWeather />
-          <ToDo dashboardParams={this.props.match.params.id}/>
-          <Calendar />
-          <div>
-            <PackingList dashboardParams={this.props.match.params.id} />
-            <Meals dashboardParams={this.props.match.params.id} />
-          </div>
+
+        <div className="jumbotron">
+          <h1>Hello cNasty! Welcome to your dashboard!</h1>
+          <h3>Lets plan your next adventure!</h3>
+          <DashboardWeather className="weather"/>
         </div>
+        <div className="container">
+        <div className="row dash-row">
+          <ToDo className="col-xs-4 col-md-4" dashboardParams={this.props.match.params.id}/>
+          <PackingList className="col-xs-4 col-md-4"/>
+          <Meals className="col-xs-6 col-md-4"/>
+
+        </div>
+        </div>
+          <Calendar />
       </div>
     )
   }
