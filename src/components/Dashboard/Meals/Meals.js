@@ -17,14 +17,14 @@ class Meals extends Component{
   }
   render(){
     return(
-      <div className='col-xs-6 dashboardLower'>
+      <div className='col-xs-4 text-center'>
         <h3>Meal Plan</h3>
         {
           this.state.viewMeals
           ?
           <div>
           <ViewMeals />
-          <button onClick={this.changeView} className="btn btn-default todo-input col-xs-12" type="button">Add A Meal</button>
+          <button onClick={this.changeView} className="btn btn-success todo-input col-xs-12" type="button">Add A Meal</button>
           </div>
           :
           <div>

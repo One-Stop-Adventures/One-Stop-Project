@@ -7,7 +7,7 @@ class ViewMeals extends Component{
       return(
           <div>
           <h4>Day {meal.day}</h4>
-          <ul className='list-group'>
+          <ul className='list-group meals-list-group'>
             <li className='list-group-item'>Breakfast: {meal.breakfast}</li>
             <li className='list-group-item'>Lunch: {meal.lunch}</li>
             <li className='list-group-item'>Dinner: {meal.dinner}</li>
@@ -19,7 +19,7 @@ class ViewMeals extends Component{
     return(
       <div>
       <ul className="list-group col-xs-12 todo">
-      <li className="list-group-item">
+      <li className="list-group-item meals-list-group">
         {mealsList}
       </li>
       </ul>
