@@ -24,11 +24,10 @@ class Meals extends Component{
           ?
           <div>
 
-//           <ViewMeals />
-//           <button onClick={this.changeView} className="btn btn-success todo-input col-xs-12" type="button">Add A Meal</button>
+
 
           <ViewMeals dashboardParams={this.props.dashboardParams} />
-          <button onClick={this.changeView} className="btn btn-default todo-input col-xs-12" type="button">Add A Meal</button>
+          <button onClick={this.changeView} className="btn btn-success todo-input col-xs-12" type="button">Add A Meal</button>
 
           </div>
           :
