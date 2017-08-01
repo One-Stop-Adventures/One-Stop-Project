@@ -72,9 +72,22 @@
 }
 
 .meals-list-group {
+  border-style: none;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 2px;
   margin-top: 1%;
-  margin-left: 5%;
+  margin-left: 7%;
+  overflow-y: scroll;
+  height: 97%;
+}
+.packing-list-group {
+  border-style: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  margin-top: 1%;
+  margin-left: 7%;
+  overflow-y: scroll;
+  height: 97%;
 }

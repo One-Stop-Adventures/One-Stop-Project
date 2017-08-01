@@ -15,7 +15,6 @@ class Dashboard extends Component{
     return(
       <div>
         <Nav2></Nav2>
-
         <div className="jumbotron">
           <h1>Hello cNasty! Welcome to your dashboard!</h1>
           <h3>Lets plan your next adventure!</h3>
@@ -24,8 +23,8 @@ class Dashboard extends Component{
         <div className="container">
         <div className="row dash-row">
           <ToDo className="col-xs-4 col-md-4" dashboardParams={this.props.match.params.id}/>
-          <PackingList className="col-xs-4 col-md-4"/>
-          <Meals className="col-xs-6 col-md-4"/>
+          <PackingList className="col-xs-4 col-md-4" dashboardParams={this.props.match.params.id}/>
+          <Meals className="col-xs-6 col-md-4" dashboardParams={this.props.match.params.id}/>
 
         </div>
         </div>

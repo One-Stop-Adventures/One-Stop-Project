@@ -44,9 +44,9 @@ class ToDo extends Component{
   render(){
     const toDoItems = this.props.items.map((item, index)=>{
       return(
-      
+
         <li key={item.id} className='list-group-item'>{item.item}<i onClick={()=>{this.deleteItem({item}, {index})}} className="fa fa-check fa-lg pull-right trashButton" aria-hidden="true"></i></li>
-        
+
       )
     })
     return(

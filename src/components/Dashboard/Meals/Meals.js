@@ -23,9 +23,6 @@ class Meals extends Component{
           this.state.viewMeals
           ?
           <div>
-
-
-
           <ViewMeals dashboardParams={this.props.dashboardParams} />
           <button onClick={this.changeView} className="btn btn-success todo-input col-xs-12" type="button">Add A Meal</button>
 
