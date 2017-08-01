@@ -7,12 +7,12 @@ import Login from './Login/Login'
 class Landing extends Component{
   render(){
     return (
-      <div className="landingContainer">
+      <div className="background">
         <Nav1 />
-        <div className="row landingRow">
+
           <Login />
           <GetStarted />
-        </div>
+
       </div>
     )
   }

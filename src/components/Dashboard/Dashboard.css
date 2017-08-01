@@ -1,31 +1,54 @@
+.dash-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .weather{
   height: 200px;
+  margin-top: 1%;
+  margin-left: 20%;
+  margin-right: 20%;
+  color: black;
 }
 .calendar{
   height: 400px;
-  border: 1px solid #F0F0F0;
+  padding-bottom: 30%;
 }
-.dashboardComponents{
-  padding: 20px;
+.calendar-container{
+  margin-top: 2%;
+}
+.text-center{
+  text-decoration: underline;
+  padding: 0;
+  margin-right: 60px;
+  box-shadow: 10px 10px 5px #AAAAAA;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-width: thin;
+
 }
 .todo-wrapper{
-  height: 400px;
-  padding-left: 0px;
+  height: 300px;
+  text-align: center;
+  text-decoration: underline;
 }
 .todo-input-wrapper{
   margin-top: 0px;
 }
 .todo{
   height: 350px;
-  overflow-y: scroll;
+  overflow-y: hidden scroll;
   margin-bottom: 0px;
-  border-top: 1px solid #F0F0F0;
-  border-left: 1px solid #F0F0F0;
+  border-top: 1px solid #AAAAAA;
   border-radius: 3px;
   padding-bottom: 0px;
 }
 .todo-input{
   height: 50px;
+  border-radius: 0;
+  margin-right: 0;
+  float: right;
 }
 .dashboardLower{
   margin-top: 40px;
@@ -34,4 +57,24 @@
 .trashButton{
   margin-top: 2px;
   color: #000;
+}
+.mini-container {
+  width: 30%;
+}
+.jumbotron {
+  text-align: center;
+  background-image: url('../../img/waterfall.jpg');
+  background-size: cover;
+  color: white;
+}
+.btn-success {
+  border-radius: 0;
+}
+
+.meals-list-group {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  margin-top: 1%;
+  margin-left: 5%;
 }

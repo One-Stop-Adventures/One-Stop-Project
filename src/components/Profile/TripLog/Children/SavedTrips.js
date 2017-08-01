@@ -4,7 +4,7 @@ class SavedTrips extends Component {
 render(){
   return (
     <div>
-    <div className="col-sm-6 list-group saved-trips">
+    <div className="col-sm-6 list-group saved-trips well">
 
       <h2>Saved Trips</h2>
       <button type="button" className="list-group-item">Cras justo odio</button>

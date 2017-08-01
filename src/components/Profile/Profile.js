@@ -11,9 +11,12 @@ class Profile extends Component {
     return (
       <div>
       <Nav2 />
+      <header className="profile-header-pic">
       <Bio />
+
       <TripLogs />
       <Stats />
+      </header>
       </div>
     )
   }
