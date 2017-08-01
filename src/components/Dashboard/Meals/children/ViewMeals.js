@@ -31,6 +31,7 @@ class ViewMeals extends Component{
         <div key={meal.day}>
           <h4>Day {meal.day}<i onClick={()=>{this.deleteMeal(meal.id, index)}} className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i><i onClick={this.editMeal} className="fa fa-pencil pull-right" aria-hidden="true"></i></h4>
           <ul className='list-group'>
+
             <li className='list-group-item'>Breakfast: {meal.breakfast}</li>
             <li className='list-group-item'>Lunch: {meal.lunch}</li>
             <li className='list-group-item'>Dinner: {meal.dinner}</li>
@@ -42,7 +43,7 @@ class ViewMeals extends Component{
     return(
       <div>
       <ul className="list-group col-xs-12 todo">
-      <li className="list-group-item">
+      <li className="list-group-item meals-list-group">
         {mealsList}
       </li>
       </ul>
@@ -52,7 +53,7 @@ class ViewMeals extends Component{
 }
 
 function mapStateToProps(state){
-  return{
+  return {
     meals: state.meals.meals
   }
 }
@@ -61,5 +62,4 @@ const mapDispatchToProps = {
   fetchMeal,
   deleteMeal
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(ViewMeals)

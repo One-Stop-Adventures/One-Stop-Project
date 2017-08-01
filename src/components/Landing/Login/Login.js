@@ -38,19 +38,17 @@ class Login extends Component {
     console.log(withRouter)
     return (
 
-      <div className="col-xs-12 col-s-12 col-md-6">
+      <div className="col-xs-12 col-md-6">
         <div className="thumbnail landing">
-          <div className="caption">
-            <h1 className="landingFontColor">Login</h1>
             <form className="navbar-form">
-
+            <h1 className="landingFontColor">Login</h1>
 
             <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control loginUsername" placeholder="Username"/>
             <br />
             <input onChange={(e)=>this.updatePassword(e.target.value)} className="form-control " placeholder="Password" type='password'/>
-            </form>
+
             <p><a onClick={()=>this.submitLogin()} className="btn btn-default btn-sm" role="button">Login</a> <Link to="/register" className="btn btn-default btn-sm" role="button">Sign-Up</Link></p>
-          </div>
+            </form>
         </div>
       </div>
     )

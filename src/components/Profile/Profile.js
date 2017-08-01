@@ -11,9 +11,11 @@ class Profile extends Component {
     return (
       <div>
       <Nav2 />
+      <header className="profile-header-pic">
       <Bio />
       <TripLogs profileParams={this.props.match.params.id}/>
       <Stats />
+      </header>
       </div>
     )
   }
