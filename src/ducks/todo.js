@@ -1,5 +1,6 @@
 const initialState = {
-  items: []
+  items: [],
+  error: null
 }
 
 const ADD_ITEM = 'todo/ADD_ITEM'
@@ -37,6 +38,8 @@ export default function todoReducer(state=initialState, action){
       return Object.assign({}, state, {items: [...state.items.slice(0, action.payload), ...state.items.slice(action.payload + 1)]})
     case FETCH_TODO_FULFILLED:
       return Object.assign({}, state, {items: action.payload.data.map(item=>{return {item: item.item, id: item.id}})})
+    case FETCH_TODO_REJECTED:
+      return Object.assign({}, state, {error: action.payload})
     default:
       return state
   }

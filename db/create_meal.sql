@@ -1,3 +1,3 @@
-INSERT INTO meals (trip_id, item, meal_time, meal_day)
-VALUES ($1, $2, $3, $4)
+INSERT INTO meals (trip_id, meal_day, breakfast, lunch, dinner, snack)
+VALUES ($1, $2, $3, $4, $5, $6)
 RETURNING *;

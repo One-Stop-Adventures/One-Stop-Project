@@ -1,12 +1,20 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {fetchMeal} from '../../../../ducks/meals'
+import {deleteMeal} from '../../../../ducks/meals'
 
 class ViewMeals extends Component{
+  componentWillMount(){
+    this.props.fetchMeal(this.props.dashboardParams)
+  }
+  deleteMeal(meal, index){
+    this.props.deleteMeal(meal, index)
+  }
   render(){
-    const mealsList = this.props.meals.map(meal=>{
+    const mealsList = this.props.meals.map((meal, index)=>{
       return(
-          <div>
-          <h4>Day {meal.day}</h4>
+          <div key={meal.day}>
+          <h4>Day {meal.day}<i onClick={()=>{this.deleteMeal(meal.id, index)}} className="fa fa-trash fa-lg trashButton pull-right" aria-hidden="true"></i><i className="fa fa-pencil pull-right" aria-hidden="true"></i></h4>
           <ul className='list-group'>
             <li className='list-group-item'>Breakfast: {meal.breakfast}</li>
             <li className='list-group-item'>Lunch: {meal.lunch}</li>
@@ -34,4 +42,9 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(ViewMeals)
+const mapDispatchToProps = {
+  fetchMeal,
+  deleteMeal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewMeals)
