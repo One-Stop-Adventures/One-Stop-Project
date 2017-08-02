@@ -28,7 +28,8 @@ class ToDo extends Component{
       id: this.props.dashboardParams
     }
     addTodo(todoObj)
-    this.props.addItem(this.state.item)
+    this.props.addItem(todoObj)
+    this.setState({item: ''})
   }
   deleteItem(item, index){
     deleteTodos(item.item.id)

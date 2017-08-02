@@ -24,7 +24,6 @@ export function deletePackingItem(item){
 }
 
 export function fetchPackingItem(promise){
-  console.log(promise)
   return{
     type: FETCH_PACKING,
     payload: promise
@@ -35,6 +34,7 @@ export function fetchPackingItem(promise){
 export default function packingListReducer(state=initialState, action){
   switch(action.type){
     case ADD_ITEM:
+      console.log(action.payload)
       return Object.assign({}, state, {packingItems: [...state.packingItems, action.payload]})
     case DELETE_ITEM:
         return Object.assign({}, state, {packingItems: [...state.packingItems.slice(0, action.payload), ...state.packingItems.slice(action.payload + 1)]})

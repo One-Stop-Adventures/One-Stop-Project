@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class TripLogsChild extends Component {
 constructor(){
   super()
@@ -8,8 +9,8 @@ constructor(){
 editTrip(){
   this.props.changeView()
 }
-
 render(){
+  console.log(this.props.trips)
   return (
     <div>
     <div className="col-sm-6 list-group trip-logs">
