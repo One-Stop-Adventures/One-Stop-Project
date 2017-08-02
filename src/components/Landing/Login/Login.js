@@ -43,9 +43,9 @@ class Login extends Component {
             <form className="navbar-form">
             <h1 className="landingFontColor">Login</h1>
 
-            <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control loginUsername" placeholder="Username"/>
+            <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control username-bar" placeholder="Username"/>
             <br />
-            <input onChange={(e)=>this.updatePassword(e.target.value)} className="form-control " placeholder="Password" type='password'/>
+            <input onChange={(e)=>this.updatePassword(e.target.value)} className="form-control password-bar" placeholder="Password" type='password'/>
 
             <p><a onClick={()=>this.submitLogin()} className="btn btn-default btn-sm" role="button">Login</a> <Link to="/register" className="btn btn-default btn-sm" role="button">Sign-Up</Link></p>
             </form>

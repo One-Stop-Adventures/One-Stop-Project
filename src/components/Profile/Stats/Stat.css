@@ -1,0 +1,18 @@
+.stat-container {
+  margin-top: 20px;
+  background-color: #F8F8F8;
+  box-shadow: 8px 10px 5px #C0C0C0;
+}
+
+.stat-title {
+  text-align: center;
+}
+.stat-box {
+  height: 300px;
+  width: 100%;
+  overflow: scroll;
+}
+
+.stat-row {
+  padding-left: 15px;
+}

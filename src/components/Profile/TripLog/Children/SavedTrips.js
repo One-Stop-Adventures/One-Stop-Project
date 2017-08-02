@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../Trips.css';
 
 class SavedTrips extends Component {
 render(){
   return (
     <div>
-    <div className="col-sm-6 list-group saved-trips well">
+    <div className="col-sm-6 list-group saved-trips">
 
       <h2>Saved Trips</h2>
       <button type="button" className="list-group-item">Cras justo odio</button>
