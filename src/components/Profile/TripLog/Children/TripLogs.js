@@ -13,7 +13,7 @@ render(){
   console.log(this.props.trips)
   return (
     <div>
-    <div className="col-sm-6 list-group trip-logs well">
+    <div className="col-sm-6 list-group trip-logs">
     <button onClick={this.editTrip} className="btn btn-default btn-sm pull-right saved-trips-edit-button"><i className="fa fa-plus" aria-hidden="true"></i></button>
       <h2>Trip Logs</h2>
       <button type="button" className="list-group-item">Cras justo odio</button>

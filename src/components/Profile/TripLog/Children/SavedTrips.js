@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import '../Trips.css';
+
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
 import {fetchTrips} from '../../../../ducks/trip'
+
 
 class SavedTrips extends Component {
   componentWillMount(){
@@ -18,7 +21,7 @@ render(){
   })
   return (
     <div>
-    <div className="col-sm-6 list-group saved-trips well">
+    <div className="col-sm-6 list-group saved-trips">
 
       <h2>Saved Trips</h2>
       {tripsList}

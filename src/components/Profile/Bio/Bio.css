@@ -1,3 +1,4 @@
+
 .profile-pic {
     background-image: url('https://s3-eu-west-1.amazonaws.com/lynks-blog/wp-content/uploads/2016/10/11153439/rsz_1shutterstock_325243652.jpg');
     border-radius: 50%;
@@ -72,21 +73,31 @@
 }
 
 .profile-well{
-  background-color: rgba(255, 255, 255, 0.7);
-  height: 200px;
+  background-color: #F8F8F8;
+  box-shadow: 8px 10px 5px #C0C0C0;
+  height: 300px;
   text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .button-profile {
 display: inline;
+margin-top: 5px;
+border-style: none;
 }
 
 .bio-box {
   margin-top: 10px;
   resize: none;
   height: 10%;
-  width: 51em;
+  width: 35em;
   text-align: center;
+}
+
+.trip-log-title {
+  width: 40%;
+  margin-bottom: 10px;
 }
 
 .demo-bio {
@@ -105,7 +116,7 @@ display: inline;
 .bio-show {
   background-color: rgba(255, 255, 255, 0.7);
   margin-top: 14px;
-  overflow: hidden scroll;
+  overflow: scroll;
 }
 
 .biography-box {
@@ -115,6 +126,7 @@ display: inline;
   width: 100%;
   overflow-y: scroll;
   text-align: center;
+  background-color: white;
 }
 
 .demo-box {
@@ -123,30 +135,4 @@ display: inline;
 
 .submit-profile-button{
   margin-top: 0;
-}
-
-.saved-trips-edit-button {
-margin-top: 10px;
-}
-
-.saved-trip-logs {
-  border-style: solid;
-  margin-top: 25px;
-  padding-left: 10px;
-  overflow: hidden;
-}
-
-.stat-container {
-  margin-top: 20px;
-  border-color: black;
-  border-style: solid;
-}
-
-.stat-title {
-  text-align: center;
-}
-.stat-box {
-  height: 300px;
-  width: 100%;
-  overflow: scroll;
 }

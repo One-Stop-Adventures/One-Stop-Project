@@ -9,9 +9,9 @@ class Landing extends Component{
     return (
       <div className="background">
         <Nav1 />
-
-          <Login />
-          <GetStarted />
+        <h1 className="landing-title">One-Stop-Adventure</h1>
+        <Login />
+        <GetStarted />
 
       </div>
     )

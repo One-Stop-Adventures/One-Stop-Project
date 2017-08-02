@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import '../Profile.css'
 import '../Bio/Bio.css'
+import './Stat.css'
 
 class Stats extends Component {
 
@@ -8,7 +9,7 @@ render(){
   return (
   <div>
     <div className="container stat-container">
-    <div className="row">
+    <div className="row stat-row">
     <h1 className="stat-title">Statistics</h1>
     <ul className="list-group stat-box">
       <li className="list-group-item">Cras justo odio</li>

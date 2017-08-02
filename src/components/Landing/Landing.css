@@ -4,7 +4,13 @@
   padding: 0;
 }
 
-
+.landing-title{
+  margin-top: 5%;
+  text-align: center;
+  color: black;
+  font-size: 70px;
+  text-decoration: underline;
+}
 
 .background {
   height: 100vh;
@@ -18,7 +24,7 @@
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 25%;
+  margin-top: 15%;
 }
 
 .get-started {
@@ -33,8 +39,15 @@
   color: #333333;
 }
 
-
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
+}
+
+.username-bar {
+  margin-bottom: 3px;
+}
+
+.password-bar {
+  margin-bottom: 3px;
 }

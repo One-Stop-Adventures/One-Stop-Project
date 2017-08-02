@@ -39,13 +39,13 @@ class NewTrip extends Component {
       <form onSubmit={this.createTrip} className="col-sm-6 form-group">
 
         <h2>New Trip</h2>
-        <label className="col-sm-4">Title</label>
-        <input value={this.state.trip_name} onChange={this.updateName} className="form-control" placeholder="Title" />
-        <label className="col-sm-4">Description</label>
-        <textarea value={this.state.description} onChange={this.updateDescription} className="form-control bio-box" rows="6" placeholder="Where are we going?"></textarea>
+
+        <input className="form-control trip-log-title" placeholder="Title" />
+        <textarea className="form-control bio-box" rows="6" placeholder="Where are we going?"></textarea>
+
         <div className="form-group">
-          <button type="submit" className="btn btn-default trip-submit">Post</button>
-          <button onClick={this.cancelTrip} className="btn btn-danger">Cancel</button>
+          <button type="submit" className="btn btn-default btn-xs trip-submit">Post</button>
+          <button onClick={this.cancelTrip} className="btn btn-danger btn-xs">Cancel</button>
         </div>
       </form>
 

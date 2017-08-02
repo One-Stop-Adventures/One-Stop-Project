@@ -2,6 +2,20 @@
   top: 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  border-style: none;
+}
+
+.nav-custom {
+  border-style: none;
+  background-color: white;
+}
+
+#bs-example-navbar-collapse-1 {
+  background-color: white;
+}
+
+.navbar-brand {
+  padding-left: 40%;
 }
 
 .nav-links {
@@ -18,11 +32,6 @@
 .nav-links-1:hover {
   text-decoration: underline;
 }
-
 .nav-links:hover {
   text-decoration: underline;
-}
-
-.navbar-brand{
-  font-size: 35px !important;
 }

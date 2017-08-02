@@ -1,0 +1,15 @@
+.saved-trip-logs {
+  background-color: #F8F8F8;
+  box-shadow: 8px 10px 5px #C0C0C0;
+}
+
+.saved-trip-logs {
+  border-style: none;
+  margin-top: 25px;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.saved-trips-edit-button {
+margin-top: 10px;
+}
