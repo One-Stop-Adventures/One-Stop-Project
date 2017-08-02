@@ -2,7 +2,8 @@ const profileCtrl = require ('./profileCtrl')
 
 module.exports = app => {
 //Profile Endpoints
-    app.post('/api/user/:id', profileCtrl.editProfile)
+    app.get('/api/user/:id', profileCtrl.getUser)
+    app.put('/api/user/:id', profileCtrl.editProfile)
     app.delete('/api/user/:id', profileCtrl.deleteProfile)
 //Trip Endpoints
     app.post('/api/user/:id/trips', profileCtrl.createTrip)

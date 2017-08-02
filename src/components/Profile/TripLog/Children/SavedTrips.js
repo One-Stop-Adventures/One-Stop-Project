@@ -15,7 +15,6 @@ class SavedTrips extends Component {
     this.props.history.push(`/dashboard/${id}`)
   }
 render(){
-  console.log(this.props.trips)
   const tripsList = this.props.trips.map(trip=>{
     return <button onClick={()=>{this.goToTrip(trip.id)}} key={trip.id} type="button" className="list-group-item">{trip.trip_name}</button>
   })
