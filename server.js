@@ -12,6 +12,8 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const LocalStrategy = require('passport-local').Strategy;
 const logout = require('express-passport-logout')
 
+const axios = require('axios');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', express.static(__dirname + '/build'))
@@ -87,6 +89,17 @@ app.get('/logout', function (req, res) {
     res.redirect('/');
 
 });
+
+//NPS api call
+app.get('/api/tacos/:term', (req, res, next) => {
+    axios.get(`https://developer.nps.gov/api/v0/parks?fields=name,images,addresses&q=${req.params.term}`, {
+        headers: {
+            Authorization: 'BE3CC0CE-4F5F-45B7-86AD-EE2ACEC43924'
+        }
+    }).then(response => {
+        res.send(response.data);
+    })
+})
 
 //landing.js is where connect to frontend
 passport.use(new FacebookStrategy({

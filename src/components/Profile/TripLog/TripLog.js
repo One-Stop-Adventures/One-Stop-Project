@@ -10,7 +10,8 @@ class TripLogs extends Component {
 constructor(){
   super();
   this.state = {
-    view: true
+    view: true,
+    search: false
   };
   this.changeView = this.changeView.bind(this)
 }
@@ -18,6 +19,7 @@ constructor(){
 changeView(){
   this.setState({view: !this.state.view})
 }
+
   render(){
     return (
       <div className="container">
@@ -32,8 +34,6 @@ changeView(){
       :
       <NewTrip profileParams={this.props.profileParams} changeView={this.changeView}/>
       }
-
-
 
       </div>
       </div>

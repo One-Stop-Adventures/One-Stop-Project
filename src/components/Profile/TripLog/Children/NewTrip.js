@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import {addTrip} from '../../../../ducks/trip.js'
+import NPSapi from './NPSapi'
 
 
 class NewTrip extends Component {
@@ -17,6 +18,8 @@ class NewTrip extends Component {
     this.createTrip = this.createTrip.bind(this)
     this.cancelTrip = this.cancelTrip.bind(this)
   }
+
+
   cancelTrip(){
     this.props.changeView()
   }
@@ -42,6 +45,9 @@ class NewTrip extends Component {
 
         <input className="form-control trip-log-title" placeholder="Title" />
         <textarea className="form-control bio-box" rows="6" placeholder="Where are we going?"></textarea>
+        <h3> OR </h3>
+        <NPSapi />
+        
 
         <div className="form-group">
           <button type="submit" className="btn btn-default btn-xs trip-submit">Post</button>
