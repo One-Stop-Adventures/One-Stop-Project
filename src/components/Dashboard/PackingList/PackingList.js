@@ -21,17 +21,15 @@ class PackingList extends Component{
   }
   addNewItem(event){
     event.preventDefault()
-    console.log(this.state.item)
     let packingListObj={
       item: this.state.item,
       id: this.props.dashboardParams
     }
     addPackingListItem(packingListObj)
-    this.props.addPackingItem(packingListObj.item)
+    this.props.addPackingItem(packingListObj)
     this.setState({item: ''})
   }
   deleteItem(index, item){
-    console.log(item)
     this.props.deletePackingItem(index)
     deletePackingListItem(item.item.id)
   }
@@ -39,7 +37,9 @@ class PackingList extends Component{
     const promise = getPackingListItems(this.props.dashboardParams)
     this.props.fetchPackingItem(promise)
   }
+
   render(){
+    console.log(this.props.packingItems)
     const packingItems = this.props.packingItems.map((item, index)=>{
       return(
         <div key={index}>

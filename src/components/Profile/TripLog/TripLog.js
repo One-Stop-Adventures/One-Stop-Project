@@ -23,14 +23,14 @@ changeView(){
       <div className="container">
       <div className='row saved-trip-logs'>
 
-      <SavedTrips />
+      <SavedTrips profileParams={this.props.profileParams} />
 
       {
         this.state.view
       ?
-      <TripLogsChild changeView={this.changeView} />
+      <TripLogsChild profileParams={this.props.profileParams} changeView={this.changeView} />
       :
-      <NewTrip changeView={this.changeView}/>
+      <NewTrip profileParams={this.props.profileParams} changeView={this.changeView}/>
       }
 
 

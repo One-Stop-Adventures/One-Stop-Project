@@ -1,5 +1,16 @@
 module.exports = {
 
+    getTrip: function(req, res, next) {
+      req.app.get('db')
+      .get_trip([req.params.trip_id])
+      .then(trip=>{
+        res.status(200).json(trip)
+      })
+      .catch(err=>{
+        res.status(500).json(err)
+      })
+
+    },
 //Meals endpoints
     createMeal: function (req, res, next) {
 

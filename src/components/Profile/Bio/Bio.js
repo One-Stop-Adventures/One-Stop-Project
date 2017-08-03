@@ -41,9 +41,9 @@ changeView(){
         {
         this.state.view
         ?
-        <Viewbio changeView={this.changeView}/>
+        <Viewbio profileParams={this.props.profileParams}  changeView={this.changeView}/>
         :
-        <Editbio changeView={this.changeView}/>
+        <Editbio profileParams={this.props.profileParams} changeView={this.changeView}/>
         }
 
 

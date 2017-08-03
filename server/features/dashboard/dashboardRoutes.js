@@ -2,6 +2,7 @@
 const dashboardCtrl = require('./dashboardCtrl');
 
 module.exports = app => {
+    app.get('/api/dashboard/:trip_id', dashboardCtrl.getTrip)
 //Meals Endpoints
     app.post('/api/dashboard/:trip_id/meal', dashboardCtrl.createMeal);
 

@@ -78,6 +78,7 @@ body {
   background-color: #F8F8F8;
   box-shadow: 8px 10px 5px #C0C0C0;
   height: 300px;
+  width: 100%;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
@@ -123,6 +124,7 @@ border-style: none;
 
 .biography-box {
   margin-top: 10px;
+  margin-left: 5px;
   padding-top: 10px;
   height: 138px;
   width: 100%;
