@@ -17,7 +17,7 @@ const Nav1 = () => {
           <span className="icon-bar"></span>
         </button>
 
-
+        <p className="brand">One Stop Adventure</p>
         </div>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 

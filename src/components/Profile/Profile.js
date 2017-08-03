@@ -6,12 +6,17 @@ import TripLogs from './TripLog/TripLog'
 import Stats from './Stats/Stats'
 import './Profile.css'
 import Footer from '../Footer/Footer';
+import Banner from './banner3.png'
+
 
 class Profile extends Component {
   render(){
     return (
       <div>
       <Nav2 />
+      <a href="https://devmountain.com/dallas-bootcamp">
+      <img src={Banner} alt="..." />
+      </a>
       <header className="profile-header-pic">
       <Bio />
       <TripLogs profileParams={this.props.match.params.id}/>

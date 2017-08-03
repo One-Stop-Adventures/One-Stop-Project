@@ -2,7 +2,14 @@
 .profile-header-pic {
 
   margin: 0;
-  height: 28em;
+  height: 40em;
   background: url('../../img/profile.jpg') no-repeat center center fixed;
   background-size: cover;
+}
+
+img {
+  position: absolute;
+  height: 700px;
+  top: 60em;
+  margin-left: 80px;
 }

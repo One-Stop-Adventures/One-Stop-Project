@@ -39,7 +39,7 @@ class Dashboard extends Component{
     return(
       <div>
         <Nav2></Nav2>
-        <div className="jumbotron">
+        <div className="jumbotron dashboard-jumbotron">
           <h1>Hello cNasty, welcome to your  dashboard</h1>
           <h3>Lets plan your trip:</h3>
           <h2>{tripData.name}</h2>
