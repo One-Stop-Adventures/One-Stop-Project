@@ -22,7 +22,7 @@ render(){
     <div>
     <div className="col-sm-6 list-group saved-trips">
 
-      <h2>Saved Trips</h2>
+      <h2 className="saved-trips-title">Saved Trips</h2>
       {tripsList}
     </div>
     </div>

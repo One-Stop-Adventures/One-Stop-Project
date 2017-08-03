@@ -16,7 +16,7 @@ render(){
     <div>
     <div className="col-sm-6 list-group trip-logs">
     <button onClick={this.editTrip} className="btn btn-default btn-sm pull-right saved-trips-edit-button"><i className="fa fa-plus" aria-hidden="true"></i></button>
-      <h2>Trip Logs</h2>
+      <h2 className="saved-trips-title">Trip Logs</h2>
     <div className="trip-scroll">
       <button type="button" className="list-group-item">Cras justo odio</button>
       <button type="button" className="list-group-item">Dapibus ac facilisis in</button>

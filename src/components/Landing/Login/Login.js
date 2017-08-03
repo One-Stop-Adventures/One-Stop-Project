@@ -41,7 +41,7 @@ class Login extends Component {
       <div className="col-xs-12 col-md-6">
         <div className="thumbnail landing">
             <form className="navbar-form">
-            <h1 className="landingFontColor">Login</h1>
+            <h1 className="landingFontColor">Start Planning</h1>
 
             <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control username-bar" placeholder="Username"/>
             <br />

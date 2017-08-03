@@ -28,9 +28,9 @@ class Blog extends Component{
       <div className="container-fluid">
               <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                   <div className="site-heading">
-                      <h1 className="blog-title">Adventure Blog Time</h1>
+                      <h1 className="blog-title"><strong>Adventure Blog Time</strong></h1>
                       <hr className="small" />
-                    <span className="subheading">Sucking at something is the first step towards being sorta good at something.</span>
+                    <span className="subheading"><strong>Sucking at something is the first step towards being sorta good at something.</strong></span>
                   </div>
               </div>
           </div>
