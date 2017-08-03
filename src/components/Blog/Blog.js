@@ -3,6 +3,7 @@ import Nav2 from '../Nav2/Nav2'
 import './Blog.css'
 import BlogPost from './Children/BlogPost'
 import AddBlogPost from './Children/AddBlogPost';
+import Footer from '../Footer/Footer';
 
 
 class Blog extends Component{
@@ -42,7 +43,7 @@ class Blog extends Component{
       :
       <AddBlogPost changeView={this.changeView}/>
       }
-
+      <Footer />
 
       </div>
     )

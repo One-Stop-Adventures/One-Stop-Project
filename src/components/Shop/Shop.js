@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav2 from '../Nav2/Nav2'
+import Footer from '../Footer/Footer'
 import './Shop.css'
 import boot from './hikingboot.jpg'
 
@@ -78,7 +79,7 @@ class Shop extends Component {
         </div>
 
       </div>
-
+      <Footer />
       </div>
     )
   }

@@ -5,6 +5,7 @@ import Bio from './Bio/Bio'
 import TripLogs from './TripLog/TripLog'
 import Stats from './Stats/Stats'
 import './Profile.css'
+import Footer from '../Footer/Footer';
 
 class Profile extends Component {
   render(){
@@ -12,9 +13,10 @@ class Profile extends Component {
       <div>
       <Nav2 />
       <header className="profile-header-pic">
-      <Bio profileParams={this.props.match.params.id} />
-      <TripLogs profileParams={this.props.match.params.id} />
+      <Bio />
+      <TripLogs profileParams={this.props.match.params.id}/>
       <Stats />
+      <Footer />
       </header>
       </div>
     )

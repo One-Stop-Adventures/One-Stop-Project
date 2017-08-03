@@ -1,4 +1,6 @@
-
+body {
+  font-family: 'Josefin Slab';
+}
 .profile-pic {
     background-image: url('https://s3-eu-west-1.amazonaws.com/lynks-blog/wp-content/uploads/2016/10/11153439/rsz_1shutterstock_325243652.jpg');
     border-radius: 50%;
@@ -76,7 +78,6 @@
   background-color: #F8F8F8;
   box-shadow: 8px 10px 5px #C0C0C0;
   height: 300px;
-  width: 100%;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
@@ -122,9 +123,8 @@ border-style: none;
 
 .biography-box {
   margin-top: 10px;
-  margin-left: 5px;
   padding-top: 10px;
-  height: 150px;
+  height: 138px;
   width: 100%;
   overflow-y: scroll;
   text-align: center;
@@ -135,6 +135,6 @@ border-style: none;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.submit-profile-button{
-  margin-top: 0;
+.button-profile {
+  background-color: #F8F8F8;
 }

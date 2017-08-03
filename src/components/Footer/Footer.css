@@ -2,11 +2,15 @@
   box-sizing: border-box;
   margin: 0;
 }
-.footer {
-  margin: 0;
-  height: 80px;
+.footer-footer  {
+  position:  relative;
   padding-top: 10px;
-  padding-left: 10px;
+  background-color: white;
+  bottom: 0;
+  width: 100%;
+  border-top: solid;
+  border-width: thin;
+  border-color: #e8e5e5;
 }
 .footerLinks {
   list-style-type: none;
@@ -18,8 +22,13 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.footer-link-2{
+  text-align: center;
+}
+
 .social{
-  margin-top: 20px;
+  padding-top: 15px;
 }
 
 .fa-facebook{
