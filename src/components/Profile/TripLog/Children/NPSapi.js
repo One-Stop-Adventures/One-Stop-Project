@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import SemanticDropDown from './semantic-ui-dropdown/semantic-dropdown'
 
 import { fetchParks } from '../../../../ducks/nps_reducer'
 
@@ -13,8 +12,7 @@ class NPSapi extends Component{
         console.log( this.props.parks )
         return(
             <div>
-                <SemanticDropDown 
-                parks={this.props.parks} />
+                Some JSX
             </div>
         )
     }
