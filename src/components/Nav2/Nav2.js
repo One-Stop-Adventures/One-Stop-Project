@@ -6,13 +6,13 @@ import './Nav2.css'
 const Nav2 = () => {
   return(
     <nav className='navbar navbar-default nav-customs'>
-      <div className="navbar-header page-scroll">
+      <div className="navbar-header page-scroll brand-2">
         <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span className="sr-only">Toggle navigation</span>
           Menu <i className="fa fa-bars"></i>
         </button>
 
-        <Link to='/' className="navbar-brand"><i className="fa fa-home fa-fw fa-2x"></i></Link>
+        <Link to='/' className="brand">One Stop Adventure</Link>
         </div>
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
