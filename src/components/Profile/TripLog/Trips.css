@@ -13,3 +13,8 @@
 .saved-trips-edit-button {
 margin-top: 10px;
 }
+
+.trip-scroll {
+  overflow: scroll;
+  height: 300px;
+}

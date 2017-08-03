@@ -18,7 +18,6 @@ const Nav1 = () => {
         </button>
 
 
-
         </div>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 

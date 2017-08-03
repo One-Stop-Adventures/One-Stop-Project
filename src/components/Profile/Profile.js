@@ -5,6 +5,7 @@ import Bio from './Bio/Bio'
 import TripLogs from './TripLog/TripLog'
 import Stats from './Stats/Stats'
 import './Profile.css'
+import Footer from '../Footer/Footer';
 
 class Profile extends Component {
   render(){
@@ -16,6 +17,7 @@ class Profile extends Component {
 
       <TripLogs />
       <Stats />
+      <Footer />
       </header>
       </div>
     )

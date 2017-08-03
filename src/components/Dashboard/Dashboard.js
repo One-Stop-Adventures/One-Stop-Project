@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 
 import Nav2 from '../Nav2/Nav2'
+import Footer from '../Footer/Footer'
 import DashboardWeather from './Weather/Weather'
 import ToDo from './Todo/Todo'
 import Calendar from './Calendar/Calendar'
@@ -29,6 +30,7 @@ class Dashboard extends Component{
         </div>
         </div>
           <Calendar />
+          <Footer />
       </div>
     )
   }
