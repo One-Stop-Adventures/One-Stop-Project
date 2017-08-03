@@ -47,7 +47,7 @@ module.exports = {
     },
     createTrip: function( req, res, next ){
         req.app.get('db')
-            .create_trip([ req.params.id, req.body.trip_name, req.body.description, req.body.completed, req.body.start_date, req.body.end_date, req.body.location ])
+            .create_trip([ req.params.id, req.body.trip_name, req.body.description, req.body.completed, req.body.start_date, req.body.end_date, req.body.city, req.body.state ])
             .then((trip) => {
                 res.status(200).json(trip)
             })

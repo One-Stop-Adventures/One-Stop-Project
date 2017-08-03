@@ -16,14 +16,16 @@ const FETCH_TRIP_REJECTED = 'trip/FETCH_TRIP_REJECTED'
 const FETCH_TRIP_FULFILLED = 'trip/FETCH_TRIP_FULFILLED'
 
 export function addTrip(trip, id){
+  console.log(trip, id)
   return axios.post(`/api/user/${id}/trips`, {
     trip_name: trip.trip_name,
-    description: trip.description
+    description: trip.description,
+    city: trip.city,
+    state: trip.state
   })
 }
 
 export function fetchTrips(id){
-  console.log(id)
   const tripListPromise = axios.get(`/api/user/${id}/trips`)
   return{
     type: FETCH_TRIPS,

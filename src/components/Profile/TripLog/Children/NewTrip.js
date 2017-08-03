@@ -11,10 +11,14 @@ class NewTrip extends Component {
     super()
     this.state = {
       trip_name: '',
-      description: ''
+      description: '',
+      city: '',
+      state: ''
     }
     this.updateName = this.onInputChange.bind(this, 'trip_name')
     this.updateDescription = this.onInputChange.bind(this, 'description')
+    this.updateCity = this.onInputChange.bind(this, 'city')
+    this.updateState = this.onInputChange.bind(this, 'state')
     this.createTrip = this.createTrip.bind(this)
     this.cancelTrip = this.cancelTrip.bind(this)
   }
@@ -43,11 +47,13 @@ class NewTrip extends Component {
 
         <h2>New Trip</h2>
 
-        <input className="form-control trip-log-title" placeholder="Title" />
-        <textarea className="form-control bio-box" rows="6" placeholder="Where are we going?"></textarea>
+        <input onChange={this.updateName} className="form-control trip-log-title" placeholder="Title" />
+        <input onChange={this.updateCity}className="form-control trip-log-title" placeholder="Nearest Town" />
+        <input onChange={this.updateState} className="form-control trip-log-title" placeholder="State" />
+        <textarea onChange={this.updateDescription} className="form-control bio-box" rows="6" placeholder="Where are we going?"></textarea>
         <h3> OR </h3>
         <NPSapi />
-        
+
 
         <div className="form-group">
           <button type="submit" className="btn btn-default btn-xs trip-submit">Post</button>
