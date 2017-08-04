@@ -23,7 +23,7 @@ class Login extends Component {
   }
   submitLogin(){
     let user = this.state
-    UserLogin(user)
+    UserLogin( user )
     .then(response => {
       let id = response.data.id
       if(response.data.message === 'Incorrect Username' || response.data.message === 'Incorrect Password'){
@@ -34,12 +34,12 @@ class Login extends Component {
       }
     })
   }
-  componentWillReceiveProps( nextProps ){
-    let id = nextProps.profile.user.id
-    if( id ){
-      this.props.history.push(`profile/${id}`)
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.userId) {
+      this.props.history.replace('/profile/' + nextProps.userId)
     }
   }
+
   render(){
     return (
 
@@ -60,4 +60,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(connect( state => state, {fetchUser} )(Login))
+export default withRouter(connect( state => ({userId: state.profile.user.id}), {fetchUser} )(Login))
