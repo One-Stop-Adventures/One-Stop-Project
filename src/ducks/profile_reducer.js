@@ -31,8 +31,7 @@ export function updateBio(id, bio){
 export default function profileReducer(state=initialState, action){
     switch(action.type){
         case FETCH_USER_FULFILLED:
-          console.log(action.payload.data)
-          return Object.assign({}, state, {user: action.payload.data})
+          return Object.assign({}, state, {user: action.payload.data[0]})
         case EDIT_BIO:
           return state;
         default:

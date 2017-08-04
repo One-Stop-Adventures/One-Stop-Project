@@ -50,6 +50,10 @@ app.post('/login',(req, res, next) => {
         })(req, res, next);
 });
 
+app.get('/user_auth', (req, res, next) => {
+    res.send(req.user);
+})
+
 passport.use(new LocalStrategy((username, password, done) => {
     db
         .find_user([username])
