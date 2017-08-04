@@ -1,10 +1,9 @@
-
 import React from "react";
 import ReactDOM from "react-dom";
 import DayPicker, { DateUtils } from "react-day-picker";
 import moment from "moment";
-import axios from 'axios'
-import {withRouter} from 'react-router-dom'
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 // import {editCalendar} from '../../../ducks/calendar'
 import "react-day-picker/lib/style.css";
 
@@ -19,41 +18,52 @@ function Weekday({ weekday, className, localeUtils, locale }) {
 
 class Example extends React.Component {
   constructor() {
-      super()
-      this.state = {
-        //selectedDay: null,
-        from: null,
-        to: null,
-        fromDate: null,
-        toDate: null,
-      };
+    super();
+    this.state = {
+      //selectedDay: null,
+      from: null,
+      to: null,
+      fromDate: null,
+      toDate: null
+    };
   }
   componentDidMount() {
     // make a db call and see what dates are selected (if any)
     // setState
-    axios.get('/api/dashboard/1/calendar')
-    .then( (response) => {
-        console.log(response)
-        const fromDate = formatDate(response.data.start_date)
-        const toDate = formatDate(response.data.end_date)
-        
-        this.setState({
-            fromDate, toDate
-        }, () => {
-            console.log(this.state)
-        })
-    } )
+    axios
+      .get(`/api/dashboard/${this.props.dashboardParams}/calendar`)
+      .then(response => {
+        console.log(response);
+
+        const fromDate = formatDate(response.data.start_date);
+        const toDate = formatDate(response.data.end_date);
+
+        this.setState(
+          {
+            fromDate,
+            toDate
+          },
+          () => {
+            console.log(this.state);
+          }
+        );
+      });
   }
+
   handleDayClick = (day, ...rest) => {
     const range = DateUtils.addDayToRange(day, this.state);
     range.fromDate = formatDate(range.from);
     range.toDate = formatDate(range.to);
-    
+
     this.setState(range, () => {
-        axios.put('/api/dashboard/1/calendar', {fromDate: this.state.from, toDate: this.state.to})
-        .then(response => {
-            console.log(response)
+      axios
+        .put(`/api/dashboard/${this.props.dashboardParams}/calendar`, {
+          fromDate: this.state.from,
+          toDate: this.state.to
         })
+        .then(response => {
+          console.log(response);
+        });
     });
     // send to db
   };
@@ -63,21 +73,15 @@ class Example extends React.Component {
       from: null,
       to: null
     });
-    axios.put('/api/dashboard/1/calendar', {fromDate: null, toDate: null})
-    .then(response => {
-        console.log(response)
-    })
-
-    // refreshSaveDateRange = e => {
-    //     e.preventDefault();
-    //     window.location.reload();
-    // }
-  }
-
-    // send to db
-    
-// <a href="." onClick="window.location.reload(true)" >Save Date Range</a>
-
+    axios
+      .put(`/api/dashboard/${this.props.dashboardParams}/calendar`, {
+        fromDate: null,
+        toDate: null
+      })
+      .then(response => {
+        console.log(response);
+      });
+  };
 
   render() {
     const { from, to } = this.state;
@@ -107,7 +111,6 @@ class Example extends React.Component {
                   <a href="." onClick={this.handleResetClick}>
                     Reset
                   </a>
-                  
                 </p>}
               <DayPicker
                 canChangeMonth={true}
@@ -117,8 +120,8 @@ class Example extends React.Component {
                 onDayClick={this.handleDayClick}
                 weekdayElement={<Weekday />}
               />
-              <div className="dateRangeSaved">Adventure from {this.state.fromDate} to {this.state.toDate} 
-
+              <div className="dateRangeSaved">
+                Adventure from {this.state.fromDate} - {this.state.toDate}
               </div>
             </div>
           </div>
@@ -128,13 +131,17 @@ class Example extends React.Component {
   }
 }
 
-
-function formatDate(date) {    
-    const newDate = new Date(date)
-    const month = newDate.getMonth() + 1
-    const day = newDate.getDate()
-    const year = newDate.getFullYear()
-    return `${month}/${day}/${year}`
+function formatDate(date) {
+  const newDate = new Date(date);
+  const month = newDate.getMonth() + 1;
+  const day = newDate.getDate();
+  const year = newDate.getFullYear();
+  const formattedDate = `${month}/${day}/${year}`;
+  if (formattedDate === '12/31/1969') {
+    return " "
+  } else {
+    return formattedDate;
+  }
 }
 
-export default withRouter(Example)
+export default withRouter(Example);
