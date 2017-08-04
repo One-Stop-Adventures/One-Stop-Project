@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios'
 
 import './Nav2.css'
 
@@ -12,7 +13,7 @@ const Nav2 = () => {
           Menu <i className="fa fa-bars"></i>
         </button>
 
-        <p className="brand">One Stop Adventure</p>
+        <Link to={'/'}><p className="brand">One Stop Adventure</p></Link>
         </div>
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
