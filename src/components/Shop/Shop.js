@@ -56,7 +56,7 @@ class Shop extends Component {
 
 
         <div className="row about-row-2">
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-12 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={boot} alt="..." />
                 <div className="caption shop-caption">
@@ -68,7 +68,7 @@ class Shop extends Component {
           </div>
 
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={cleanwaste} alt="..." />
                 <div className="caption shop-caption">
@@ -79,7 +79,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={gopro} alt="..." />
                 <div className="caption shop-caption">
@@ -90,7 +90,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={medicalkit} alt="..." />
                 <div className="caption shop-caption">
@@ -101,7 +101,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={sanifem} alt="..." />
                 <div className="caption shop-caption">
@@ -112,7 +112,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={tent} alt="..." />
                 <div className="caption shop-caption">
@@ -123,7 +123,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={sleepingbag} alt="..." />
                 <div className="caption shop-caption">
@@ -134,7 +134,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={knife} alt="..." />
                 <div className="caption shop-caption">
@@ -145,7 +145,7 @@ class Shop extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-6 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={stool} alt="..." />
                 <div className="caption shop-caption">

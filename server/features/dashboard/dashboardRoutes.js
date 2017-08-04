@@ -18,5 +18,7 @@ module.exports = app => {
     app.post('/api/dashboard/:trip_id/packingList', dashboardCtrl.addPackItem)
     app.delete('/api/dashboard/packingList/:item_id', dashboardCtrl.deletePackItem)
     app.get('/api/dashboard/:trip_id/packingList', dashboardCtrl.getPackItems)
-
+//Calendar Endpoints
+    app.get('/api/dashboard/:trip_id/calendar', dashboardCtrl.getDates)
+    app.put('/api/dashboard/:trip_id/calendar', dashboardCtrl.addDates)
 }

@@ -133,6 +133,31 @@ module.exports = {
                 console.log( err )
                 res.status( 500 ).json( 'Failure' )
             })
+    },
+
+    //Calendar Endpoints
+    getDates: function (req, res, next) {
+        req.app.get('db')
+        .get_date([req.params.trip_id])
+        .then(dates => {
+            res.status(200).json(dates[0])
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json('Date Retrieval Failure')
+        })
+    },
+    addDates: function (req, res, next) {
+        console.log(req.body.fromDate)
+        req.app.get('db')
+        .add_date([req.body.fromDate, req.body.toDate, req.params.trip_id])
+        .then(dates => {
+            res.status(200).json(dates[0])
+        })
+        .catch( err => {
+            console.log(err)
+            res.status(500).json('Date Add Failure')
+        })
     }
 
 

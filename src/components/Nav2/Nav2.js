@@ -18,11 +18,11 @@ const Nav2 = () => {
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
-            <li className="nav-links"><Link to={'/shop'}><strong>Shop</strong></Link></li>
-            <li className="nav-links"><Link to={'/about'}><strong>About</strong></Link></li>
-            <li className="nav-links"><Link to={'/blog'}><strong>Blog</strong></Link></li>
-            <li className="nav-links"><Link to={'/Profile'}><strong>Profile</strong></Link></li>
-            <li className="nav-links-1" onClick={UserLogout()}><strong>Logout</strong></li>
+            <li className="nav2-links"><Link to={'/shop'}><strong>Shop</strong></Link></li>
+            <li className="nav2-links"><Link to={'/about'}><strong>About</strong></Link></li>
+            <li className="nav2-links"><Link to={'/blog'}><strong>Blog</strong></Link></li>
+            <li className="nav2-links"><Link to={'/Profile'}><strong>Profile</strong></Link></li>
+            <li className="nav2-links-1"><strong>Logout</strong></li>
           </ul>
         </div>
     </nav>

@@ -7,7 +7,6 @@
 }
 
 .landing-title{
-  margin-top: 4%;
   text-align: center;
   color: white;
   font-size: 10em;
@@ -52,7 +51,7 @@
 }
 
 .background {
-  height: calc(100vh + 345px);
+  height: calc(100vh + 450px);
   margin: 0;
   background: url('../../img/landing4.jpg') no-repeat center center fixed;
   background-size: cover;

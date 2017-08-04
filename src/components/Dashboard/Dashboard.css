@@ -104,3 +104,8 @@
   overflow-y: scroll;
   height: 97%;
 }
+
+.calendar-container{
+  margin-bottom: 3%;
+  margin-top: 3%;
+}

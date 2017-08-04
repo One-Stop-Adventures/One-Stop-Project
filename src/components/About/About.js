@@ -14,49 +14,54 @@ class About extends Component{
       <div>
         <Nav2 />
         <h1 className="about-title">About Us</h1>
-      <div className="container">
-        <div className="row about-row">
-          <div className="col-sm-6 col-md-4">
+      <div className="container container-text">
+
+          <div className="col-xs-12 col-md-3">
             <div className="thumbnail">
               <img src={Hunter} alt="..." />
                 <div className="caption">
                   <h3>Hunter Harrison</h3>
-                  <p>...</p>
+                  <a href="https://github.com/hscottharrison" target="_blank" className="about-git"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/hunterscottharrison/" target="_blank" className="about-link"><i className="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
                 </div>
             </div>
           </div>
 
-          <div className="col-sm-6 col-md-4">
+          <div className="col-xs-12 col-md-3">
             <div className="thumbnail">
               <img src={Vann} alt="..." />
                 <div className="caption">
                   <h3>Vann Vaughan</h3>
-                  <p>...</p>
+                  <a href="https://github.com/vannvaughan" target="_blank" className="about-git"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/vann-vaughan/" target="_blank" className="about-link"><i className="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
                 </div>
             </div>
           </div>
 
-          <div className="col-sm-6 col-md-4">
+          <div className="col-xs-12 col-md-3">
             <div className="thumbnail">
               <img src={Chris} alt="..." />
                 <div className="caption">
                   <h3>Chris Yi</h3>
-                  <p>...</p>
+                  <a href="https://github.com/chrisyi" target="_blank" className="about-git"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                  <a className="about-link"><i className="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
                 </div>
             </div>
           </div>
 
-          <div className="col-sm-6 col-md-4">
+          <div className="col-xs-12 col-md-3">
             <div className="thumbnail">
               <img src={Terry} alt="..." />
                 <div className="caption">
                   <h3>Terry Dinh</h3>
-                  <p>I love hiking!</p>
+                  <a href="https://github.com/tedinh" target="_blank" className="about-git"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/terryqdinh/" target="_blank" className="about-link"><i className="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
                 </div>
             </div>
           </div>
-        </div>
-        <p className="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div className="container about-text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
 
       <h1 className="about-title-2">Our Mission</h1>
