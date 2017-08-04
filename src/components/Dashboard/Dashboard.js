@@ -25,6 +25,7 @@ class Dashboard extends Component{
   async componentDidMount(){
     const response = await this.props.fetchTrip(this.props.match.params.id)
     const res = await axios.get(`/api/weather/${response.value.data[0].city}/${response.value.data[0].state}`)
+    console.log(res)
     this.setState({weatherInfo: res.data.forecast.simpleforecast.forecastday})
   }
   render(){
