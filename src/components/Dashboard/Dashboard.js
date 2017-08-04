@@ -53,7 +53,7 @@ class Dashboard extends Component{
 
         </div>
         </div>
-          <Calendar />
+          <Calendar dashboardParams={this.props.match.params.id} />
           <Footer />
       </div>
     )
