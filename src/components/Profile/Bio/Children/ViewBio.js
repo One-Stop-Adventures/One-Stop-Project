@@ -16,9 +16,8 @@ class Viewbio extends Component {
     this.props.fetchUser(this.props.profileParams)
   }
   render() {
-    console.log(this.props.user)
-      const userData = this.props.user.map(user=>{
-        return(
+    const {user} = this.props
+      const userData = (
           <div className="profile-well">
             <button onClick={this.editProfile} className="btn btn-default btn-sm button-profile"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
             <h2 className="profile-title">{user.first_name} {user.last_name}</h2>
@@ -33,7 +32,6 @@ class Viewbio extends Component {
               }
               </div>
         )
-      })
     return (
       <div>
       <div className="col-md-6 col-md-offset-3 profile-view">
