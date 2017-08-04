@@ -23,9 +23,9 @@ const Nav1 = () => {
 
           <div>
             <ul className="nav navbar-nav pull-right">
-                <li className="nav-links"><Link to='Shop'>Shop</Link></li>
-                <li className="nav-links"><Link to='About'>About</Link></li>
-                <li className="nav-links-1"><Link to='Blog'>Blog</Link></li>
+                <li className="nav-links"><Link to={'/shop'}>Shop</Link></li>
+                <li className="nav-links"><Link to={'/about'}>About</Link></li>
+                <li className="nav-links-1"><Link to={'/blog'}>Blog</Link></li>
             </ul>
           </div>
         </div>
