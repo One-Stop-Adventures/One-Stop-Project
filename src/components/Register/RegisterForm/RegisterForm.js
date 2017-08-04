@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import {registrationSubmit} from '../../../actions/register/Register'
 import '../Register.css'
+import { connect } from 'react-redux'
+import { fetchUser } from '../../../ducks/profile_reducer'
 
 class RegisterForm extends Component {
   constructor () {
@@ -34,13 +36,17 @@ class RegisterForm extends Component {
   submitRegistration(){
     registrationSubmit(this.state)
     .then(response => {
-      console.log(response)
-      let username = response.data.username
-      this.props.history.push(`dashboard/${username}`)
+      let id = response.data.id
+      this.props.fetchUser(id)
     })
 
   }
-
+  componentWillReceiveProps( nextProps ){
+    let id = nextProps.profile.user.id
+    if( id ) {
+      this.props.history.push( `profile/${id}` )
+    }
+  }
   render(){
     return (
       <div className="registerBackground">
@@ -79,4 +85,4 @@ class RegisterForm extends Component {
   }
 }
 
-export default withRouter(RegisterForm)
+export default withRouter(connect( state => state, {fetchUser} )(RegisterForm))
