@@ -31,7 +31,13 @@ masterRoutes(app);
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.post('/login',(req, res, next) => {
+
+app.get('/api/weather/:city/:state', (req,res,next) => {
+  axios.get(`http://api.wunderground.com/api/7bd6e5a7f2af93d2/forecast10day/q/${req.params.state}/${req.params.city}.json`)
+.then( response => res.send(response.data));
+})
+
+app.post('/login', function (req, res, next) {
     passport
         .authenticate('local',(err, user, info) => {
             if (err) {

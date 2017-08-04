@@ -40,10 +40,10 @@ class App extends Component {
           <Route path='/shop' component={Shop} />
           <Route path='/profile/:id' render = {this.showProfile} />
 
-          <Route path='/register' component={Register} />
+          <Route exact path='/register' component={Register} />
           <Route path='/dashboard/:id' component={Dashboard} />
         </Switch>
-      
+
       </div>
     );
   }

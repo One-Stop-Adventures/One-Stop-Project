@@ -11,12 +11,12 @@ class Footer extends Component {
         <li>Contact</li>
       </ul>
       <ul className="col-sm-1 col-sm-1 footerLinks footer-link-2">
-        <li>Profile</li>
-        <li>Dashboard</li>
         <li>Careers</li>
+        <li>FAQ</li>
+        <li>Become an affiliate</li>
       </ul>
       <ul className="col-sm-1 col-sm-1 footerLinks footer-link-2">
-        <li>Jobs</li>
+        <li>Sponsors</li>
         <li>Terms of Service</li>
         <li>Privacy Policy</li>
       </ul>

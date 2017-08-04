@@ -5,19 +5,32 @@
 }
 
 .weather{
-  height: 200px;
+  height: 290px;
   margin-top: 1%;
   margin-left: 20%;
   margin-right: 20%;
   color: black;
 }
+.weather-data-container{
+  width: 100%;
+  height: 230px;
+  display: flex;
+  overflow-x: scroll;
+}
+.weather-list{
+  width: 100px;
+}
+.weather-icon{
+  height: 50px;
+  position: relative;
+  margin: 0;
+  top: 0;
+}
 .calendar{
   height: 400px;
   padding-bottom: 30%;
 }
-.calendar-container{
-  margin-top: 2%;
-}
+
 .text-center{
   text-decoration: underline;
   padding: 0;
@@ -61,7 +74,7 @@
 .mini-container {
   width: 30%;
 }
-.jumbotron {
+.dashboard-jumbotron {
   text-align: center;
   background-image: url('../../img/waterfall.jpg');
   background-size: cover;

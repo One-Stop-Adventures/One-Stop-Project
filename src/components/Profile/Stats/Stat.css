@@ -1,19 +1,24 @@
 .stat-container {
-  margin-top: 20px;
+  margin-top: 40px;
   background-color: #F8F8F8;
   box-shadow: 8px 10px 5px #C0C0C0;
   margin-bottom: 30px;
+  border-radius: 10px;
 }
 
 .stat-title {
   text-align: center;
+  text-decoration: underline;
 }
 .stat-box {
   height: 300px;
   width: 100%;
   overflow: scroll;
+  border-style: solid;
+  border-color: #9A9A9A;
 }
 
 .stat-row {
   padding-left: 15px;
+  padding-right: 10px;
 }
