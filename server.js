@@ -39,7 +39,7 @@ app.get('/api/weather/:city/:state', (req,res,next) => {
 
 app.post('/login', function (req, res, next) {
     passport
-        .authenticate('local', function (err, user, info) {
+        .authenticate('local',(err, user, info) => {
             if (err) {
                 return next(err);
             }
@@ -47,7 +47,7 @@ app.post('/login', function (req, res, next) {
                 return res.send(info);
             }
             req
-                .logIn(user, function (err) {
+                .logIn(user, (err) => {
                     if (err) {
                         return res.send("Error")
                     }
@@ -56,7 +56,11 @@ app.post('/login', function (req, res, next) {
         })(req, res, next);
 });
 
-passport.use(new LocalStrategy(function (username, password, done) {
+app.get('/user_auth', (req, res, next) => {
+    res.send(req.user);
+})
+
+passport.use(new LocalStrategy((username, password, done) => {
     db
         .find_user([username])
         .then(users => {
@@ -76,19 +80,19 @@ passport.use(new LocalStrategy(function (username, password, done) {
         })
 }));
 
-passport.serializeUser(function (user, done) {
+passport.serializeUser((user, done) => {
     console.log('this is the serialized user: ', user);
     done(null, user);
 
 });
 
-passport.deserializeUser(function (obj, done) {
+passport.deserializeUser((obj, done) => {
     console.log('this is the deserialized user: ', obj);
     done(null, obj);
 });
 
 //Passport Log Out
-app.get('/logout', function (req, res) {
+app.get('/logout',(req, res) => {
 
     req.logout();
     console.log('Logged Out')
@@ -110,7 +114,7 @@ app.get('/api/tacos/:term', (req, res, next) => {
 //landing.js is where connect to frontend
 passport.use(new FacebookStrategy({
     clientID: '290049698129601', clientSecret: '0dfc228b9cee2e7ef8e312231e5a721a', callbackURL: 'http://localhost:4000/auth/facebook/callback' //4000 is server
-}, function (token, refreshToken, profile, done) {
+},(token, refreshToken, profile, done) => {
     // You have a profile Either find the guy or make the guy
     db
         .find_by_facebook_id([profile.id])
@@ -137,9 +141,9 @@ passport.use(new FacebookStrategy({
 }));
 
 app.get("/auth/facebook", passport.authenticate("facebook"));
-app.get("/auth/facebook/callback", function (req, res, next) {
+app.get("/auth/facebook/callback",(req, res, next) => {
     passport
-        .authenticate('facebook', function (err, user, info) {
+        .authenticate('facebook',(err, user, info) => {
             if (err) {
                 return next(err);
             }
@@ -147,7 +151,7 @@ app.get("/auth/facebook/callback", function (req, res, next) {
                 return res.redirect('http://localhost:4001/info'); //'http://localhost:4001/profile/' + req.user.id
             }
             req
-                .logIn(user, function (err) {
+                .logIn(user, (err) => {
                     if (err) {
                         return res.redirect('http://localhost:4001/error')
                     }
@@ -164,7 +168,7 @@ passport.use(new GoogleStrategy({
     clientID: "79316663432-tp4mvccldneduge8n1iell2n0bfgtc6p.apps.googleusercontent.com",
     clientSecret: "m10LeIqjmd_oz9B6uvG87ChA",
     callbackURL: "http://localhost:4000/auth/google/callback"
-}, function (accessToken, refreshToken, profile, done) {
+}, (accessToken, refreshToken, profile, done) => {
     db
         .find_by_google_id([profile.id])
         .then(users => {
@@ -188,9 +192,9 @@ passport.use(new GoogleStrategy({
 }));
 
 app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login']}));
-app.get('/auth/google/callback', function (req, res, next) {
+app.get('/auth/google/callback', (req, res, next) => {
     passport
-        .authenticate('google', function (err, user, info) {
+        .authenticate('google', (err, user, info) => {
             if (err) {
                 return next(err);
             }
@@ -198,7 +202,7 @@ app.get('/auth/google/callback', function (req, res, next) {
                 return res.redirect('http://localhost:4001/profile/' + req.user.id);
             }
             req
-                .logIn(user, function (err) {
+                .logIn(user, (err) => {
                     if (err) {
                         return res.redirect('http://localhost:4001/error')
                     }
@@ -210,7 +214,7 @@ app.get('/auth/google/callback', function (req, res, next) {
         })(req, res, next);
 });
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT, () => {
     console.log('Jet fuel cant melt steel beams')
 })
 
