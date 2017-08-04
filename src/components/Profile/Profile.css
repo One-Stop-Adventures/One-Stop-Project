@@ -12,3 +12,6 @@
   height: 700px;
   top: 10em;
 }
+.typeahead{
+  z-index: 9;
+}
