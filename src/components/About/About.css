@@ -5,10 +5,7 @@
   margin-bottom: 5%;
 }
 
-.about-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.container-text {
   text-align: center;
 }
 
@@ -17,7 +14,10 @@
   font-size: 20px;
 }
 
-
+.about-git {
+  color: #852890;
+  margin-right: 10px;
+}
 .about-title-2 {
   text-align: center;
   font-size: 80px;
