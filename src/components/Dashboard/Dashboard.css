@@ -20,6 +20,12 @@
 .weather-list{
   width: 100px;
 }
+.weather-icon{
+  height: 50px;
+  position: relative;
+  margin: 0;
+  top: 0;
+}
 .calendar{
   height: 400px;
   padding-bottom: 30%;

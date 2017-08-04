@@ -17,10 +17,10 @@ const Nav2 = () => {
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
-            <li className="nav-links"><Link to='Shop'><strong>Shop</strong></Link></li>
-            <li className="nav-links"><Link to='About'><strong>About</strong></Link></li>
-            <li className="nav-links"><Link to='Blog'><strong>Blog</strong></Link></li>
-            <li className="nav-links-1"><Link to='Profile'><strong>Profile</strong></Link></li>
+            <li className="nav-links"><Link to={'/shop'}><strong>Shop</strong></Link></li>
+            <li className="nav-links"><Link to={'/about'}><strong>About</strong></Link></li>
+            <li className="nav-links"><Link to={'/blog'}><strong>Blog</strong></Link></li>
+            <li className="nav-links-1"><Link to={'/Profile'}><strong>Profile</strong></Link></li>
           </ul>
         </div>
     </nav>

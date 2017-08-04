@@ -25,7 +25,6 @@ class Dashboard extends Component{
   async componentDidMount(){
     const response = await this.props.fetchTrip(this.props.match.params.id)
     const res = await axios.get(`/api/weather/${response.value.data[0].city}/${response.value.data[0].state}`)
-    console.log(res);
     this.setState({weatherInfo: res.data.forecast.simpleforecast.forecastday})
   }
   render(){
@@ -35,7 +34,7 @@ class Dashboard extends Component{
       tripData.city = this.props.trip[i].city;
       tripData.state = this.props.trip[i].state;
     }
-      console.log(this.state.weatherInfo)
+    console.log(this.props.trip)
     return(
       <div>
         <Nav2></Nav2>
@@ -43,7 +42,7 @@ class Dashboard extends Component{
           <h1>Hello cNasty, welcome to your  dashboard</h1>
           <h3>Lets plan your trip:</h3>
           <h2>{tripData.name}</h2>
-          <DashboardWeather weatherInfo={this.state.weatherInfo} className="weather"/>
+          <DashboardWeather city={tripData.city} state={tripData.state} weatherInfo={this.state.weatherInfo} className="weather"/>
         </div>
         <div className="container">
         <div className="row dash-row">
