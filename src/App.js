@@ -19,6 +19,7 @@ class App extends Component {
   }
   
   render() {
+    console.log(this.props.userId)
     return (
       <div>
         <Switch>
@@ -26,7 +27,7 @@ class App extends Component {
           <Route path='/about' component={About} />
           <Route path='/blog' component={Blog} />
           <Route path='/shop' component={Shop} />
-          <PrivateRoute path='/profile/:id' component={Profile}/>
+          <PrivateRoute path='/profile/:id' component={Profile} userId={this.props.userId}/>
           <Route exact path='/register' component={Register} />
           <Route path='/dashboard/:id' component={Dashboard} />
         </Switch>
@@ -42,10 +43,6 @@ function mapStateToProps (state) {
 }
 export default withRouter(connect( mapStateToProps )(App))
 
-const PrivateRoute = (({component: Component, ...rest}) => (
-  <Route {...rest} render={props => {
-    console.log("Props", props)
-    return (
-      <Component {...props}/>
-  )}}/>
-))
+function PrivateRoute ({path, component, userId}) {
+  return userId ? <Route path={path} component={component} /> : <Redirect to="/" />
+}
