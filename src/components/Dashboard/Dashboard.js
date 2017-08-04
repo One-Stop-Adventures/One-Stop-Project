@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import axios from 'axios'
 
 import {fetchTrip} from '../../ducks/trip.js'
 
 import Nav2 from '../Nav2/Nav2'
+import Footer from '../Footer/Footer'
 import DashboardWeather from './Weather/Weather'
 import ToDo from './Todo/Todo'
 import Calendar from './Calendar/Calendar'
@@ -13,23 +15,35 @@ import Meals from './Meals/Meals'
 import './Dashboard.css'
 
 class Dashboard extends Component{
-  componentWillMount(){
-    this.props.fetchTrip(this.props.match.params.id)
+  constructor(){
+    super()
+    this.state = {
+      weatherInfo: []
+    }
+
+  }
+  async componentDidMount(){
+    const response = await this.props.fetchTrip(this.props.match.params.id)
+    const res = await axios.get(`/api/weather/${response.value.data[0].city}/${response.value.data[0].state}`)
+    console.log(res)
+    this.setState({weatherInfo: res.data.forecast.simpleforecast.forecastday})
   }
   render(){
     const tripData = {}
     for(let i = 0; i < this.props.trip.length; i++){
       tripData.name = this.props.trip[i].trip_name;
+      tripData.city = this.props.trip[i].city;
+      tripData.state = this.props.trip[i].state;
     }
-    console.log(tripData)
+    console.log(this.props.trip)
     return(
       <div>
         <Nav2></Nav2>
-        <div className="jumbotron">
+        <div className="jumbotron dashboard-jumbotron">
           <h1>Hello cNasty, welcome to your  dashboard</h1>
           <h3>Lets plan your trip:</h3>
           <h2>{tripData.name}</h2>
-          <DashboardWeather className="weather"/>
+          <DashboardWeather city={tripData.city} state={tripData.state} weatherInfo={this.state.weatherInfo} className="weather"/>
         </div>
         <div className="container">
         <div className="row dash-row">
@@ -40,6 +54,7 @@ class Dashboard extends Component{
         </div>
         </div>
           <Calendar dashboardParams={this.props.match.params.id} />
+          <Footer />
       </div>
     )
   }

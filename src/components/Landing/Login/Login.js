@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import history from '../../../history'
 import {withRouter, Link} from 'react-router-dom'
 import "../Landing.css"
+import { connect } from 'react-redux'
+import { fetchUser } from '../../../ducks/profile_reducer'
 
 import {UserLogin} from '../../../actions/Login/Login'
 
@@ -20,28 +22,31 @@ class Login extends Component {
     this.setState({password: e})
   }
   submitLogin(){
-    console.log(this.state)
     let user = this.state
-    UserLogin(user)
+    UserLogin( user )
     .then(response => {
-      console.log(response)
+      let id = response.data.id
       if(response.data.message === 'Incorrect Username' || response.data.message === 'Incorrect Password'){
         alert('Incorrect Username or Password. Please try again.')
       }
       else{
-        let id = response.data.id
-        this.props.history.push(`/profile/${id}`)
+        this.props.fetchUser(id)
       }
     })
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.userId) {
+      this.props.history.replace('/profile/' + nextProps.userId)
+    }
+  }
+
   render(){
-    console.log(withRouter)
     return (
 
       <div className="col-xs-12 col-md-6">
         <div className="thumbnail landing">
             <form className="navbar-form">
-            <h1 className="landingFontColor">Login</h1>
+            <h1 className="landingFontColor">Start Planning</h1>
 
             <input onChange={(e)=>this.updateUsername(e.target.value)} className="form-control username-bar" placeholder="Username"/>
             <br />
@@ -55,4 +60,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+export default withRouter(connect( state => ({userId: state.profile.user.id}), {fetchUser} )(Login))

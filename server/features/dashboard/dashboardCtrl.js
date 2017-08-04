@@ -7,6 +7,7 @@ module.exports = {
         res.status(200).json(trip)
       })
       .catch(err=>{
+        console.log('Theres an error dumbass')
         res.status(500).json(err)
       })
 

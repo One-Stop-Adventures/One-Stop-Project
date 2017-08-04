@@ -1,10 +1,21 @@
 module.exports = {
 //Profile Endpoints
+    getUser: function(req, res, next){
+      req.app.get('db')
+            .get_user([req.params.id])
+            .then(user=>{
+              res.status(200).json(user)
+            })
+            .catch(err=>{
+              res.status(500).json(err)
+            })
+    },
     editProfile: function( req, res, next ){
+      console.log(req.body)
         req.app.get('db')
-            .edit_user([ req.params.id, req.body.username, req.body.password, req.body.email, req.body.first_name, req.body.last_name, req.body.city, req.body.state, req.body.profile_pic, req.body.birthday, req.body.bio ])
-            .then(( user ) => {
-                res.status(200).json(user)
+            .edit_user([ req.params.id, req.body.bio ])
+            .then(( succ ) => {
+                res.status(200).json(succ)
             })
             .catch(( err ) => {
                 console.log(err)
@@ -35,9 +46,8 @@ module.exports = {
             })
     },
     createTrip: function( req, res, next ){
-        console.log(req.body)
         req.app.get('db')
-            .create_trip([ req.params.id, req.body.trip_name, req.body.description, req.body.completed, req.body.start_date, req.body.end_date, req.body.location ])
+            .create_trip([ req.params.id, req.body.trip_name, req.body.description, req.body.completed, req.body.start_date, req.body.end_date, req.body.city, req.body.state ])
             .then((trip) => {
                 res.status(200).json(trip)
             })
@@ -47,7 +57,6 @@ module.exports = {
             })
     },
     deleteTrip: function( req, res, next ){
-        console.log(req.params)
         req.app.get( 'db' )
             .delete_trip([ req.params.trip_id ])
             .then(() => {

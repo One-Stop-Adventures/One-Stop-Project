@@ -2,7 +2,16 @@
 .profile-header-pic {
 
   margin: 0;
-  height: 28em;
+  height: 40em;
   background: url('../../img/profile.jpg') no-repeat center center fixed;
   background-size: cover;
+}
+
+#banner {
+  position: relative;
+  height: 700px;
+  top: 10em;
+}
+.typeahead{
+  z-index: 9;
 }

@@ -1,54 +1,70 @@
 .about-title {
-  background: url('../../img/aboutmegrass.jpg') center;
-  background-size: cover;
-  width: 100%;
-  padding-left: 5%;
+  text-align: center;
+  font-size: 80px;
+  border-bottom: double;
+  margin-bottom: 5%;
 }
 
-.about-jumbotron {
-  margin-top: 2%;
-  margin-right: 5%;
-  padding-top: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.about-title-2 {
-  background: url('../../img/aboutmemission2.jpg') center center;
-  background-size: cover;
-  width: 100%;
-  padding-left: 5%;
-}
-
-.about-jumbotron-2 {
-  margin-top: 2%;
-  margin-right: 5%;
-  padding-top: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-
-.about-creators {
+.about-row {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
+  text-align: center;
 }
 
-.about-jumbotron-3 {
-  margin-top: 3%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding-top: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+.about-text {
+  text-align: center;
+  font-size: 20px;
 }
 
-.thumb-color {
-  background-color: rgba(255, 255, 255, 0.3);
+
+.about-title-2 {
+  text-align: center;
+  font-size: 80px;
+  border-bottom: double;
+  border-top: double;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .about-title-3 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.about-form {
+  margin-top: 40px;
+  padding: 20px;
+  border-style: groove;
   margin-bottom: 10%;
-  height: 50vh;
-  background: url('../../img/aboutcreators.jpg') center;
-  background-size: cover;
+}
+
+.about-textarea {
+  resize: none;
+}
+
+.about-location {
+  text-align: center;
+  font-size: 30px;
+  font-family: arial;
+  color: white;
+}
+
+.about-text-1 {
+  text-align: center;
+  font-size: 20px;
+  font-family: arial;
+  color: white;
+}
+
+.about-background {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  background-image: url("./dallas.jpg");
+  background-position: center center;
+}
+
+.about-info{
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
 }

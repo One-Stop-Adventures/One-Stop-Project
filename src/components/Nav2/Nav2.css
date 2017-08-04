@@ -2,6 +2,7 @@
   margin-top: 10px;
   border-radius: 0;
   border-style: none;
+  border-radius: 0px;
   bottom: 0;
   padding-top: 10px;
   background-color: white;
@@ -12,16 +13,33 @@
 }
 
 
+.brand {
+  text-align: center;
+  font-family: 'Cabin Sketch';
+  color: black;
+  font-size: 30px;
+  margin-left: 5%;
+  width: 100%;
+}
+
+.brand-2 {
+  margin-left: 10px;
+}
+
+
 .nav-links {
   padding-left: 50px;
   padding-right: 50px;
   border-right: solid;
   border-width: thin;
+  color: black;
 }
 
 .nav-links-1 {
   padding-left: 50px;
   padding-right: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .nav-links-1:hover {
   text-decoration: underline;

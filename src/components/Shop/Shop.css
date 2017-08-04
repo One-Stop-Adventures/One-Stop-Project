@@ -3,8 +3,36 @@
 
 .shop-jumbo {
   text-align: center;
+  background-color: #286090;
 }
 
 .shop-well {
   background-color: white;
+}
+
+.shop-thumbnail {
+  height: 400px;
+  width: 237px;
+}
+
+.shop-img {
+  height: 200px;
+}
+
+.shop-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.shop-caption {
+  text-align: center;
+}
+
+.badge {
+  font-size: 15px;
+  width: 15%;
+  background-color: #286090;
 }

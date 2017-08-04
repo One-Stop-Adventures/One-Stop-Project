@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 import DayPicker, { DateUtils } from "react-day-picker";
@@ -77,9 +78,9 @@ class Example extends React.Component {
     
 // <a href="." onClick="window.location.reload(true)" >Save Date Range</a>
 
+
   render() {
     const { from, to } = this.state;
-
     //const { selectedDay } = this.state;
     return (
       <div className="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 text-center calendar-container">

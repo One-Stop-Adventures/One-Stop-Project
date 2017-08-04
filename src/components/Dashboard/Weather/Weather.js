@@ -2,25 +2,31 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
 
-import {fetchWeather} from '../../../ducks/weather';
-import {getWeather} from '../../../ducks/weather_reducer';
-// import '../Dashboard.css'
-
 class DashboardWeather extends Component{
-  constructor(){
-    super()
-  }
-  componentDidMount(){
-    const promise = fetchWeather()
-    this.props.getWeather(promise)
-  }
+
+
   render(){
+    const weatherData = this.props.weatherInfo.map(day=>{
+      return(
+        <div>
+          <ul className='list-group weather-list'>
+            <li className='list-group-item'>{day.date.monthname_short} {day.date.day}</li>
+            <li className='list-group-item'><img className='weather-icon' src={day.icon_url} /></li>
+            <li className='list-group-item'>High: {day.high.fahrenheit}</li>
+            <li className='list-group-item'>Low: {day.low.fahrenheit}</li>
+          </ul>
+        </div>
+      )
+    })
     return(
       <div className="container">
 
           <div className="thumbnail weather">
             <div>
-              <h3>Weather info</h3>
+              <h3>Weather info for {this.props.city}, {this.props.state}</h3>
+              <table  className='weather-data-container'>
+                {weatherData}
+              </table>
             </div>
           </div>
 
@@ -29,13 +35,6 @@ class DashboardWeather extends Component{
   }
 }
 
-function mapStateToProps(state){
-  return{
-    data: state.weather.data
-  }
-}
-const mapDispatchToProps = {
-  getWeather
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardWeather);
+
+export default DashboardWeather

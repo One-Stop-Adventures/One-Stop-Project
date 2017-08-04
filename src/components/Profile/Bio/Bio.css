@@ -1,6 +1,8 @@
-
+body {
+  font-family: 'Josefin Slab';
+}
 .profile-pic {
-    background-image: url('https://s3-eu-west-1.amazonaws.com/lynks-blog/wp-content/uploads/2016/10/11153439/rsz_1shutterstock_325243652.jpg');
+    background-image: url('./vann.jpg');
     border-radius: 50%;
     height: 250px;
     width: 250px;
@@ -12,7 +14,9 @@
     color: transparent;
     transition: all .3s ease;
     text-decoration: none;
-
+    border-style: solid;
+    border-width: thick;
+    border-color: black;
 }
 
 .edit-profile-container {
@@ -30,7 +34,7 @@
 
 .cam-icon {
     display: inline-block;
-    padding-top: 4.5em;
+    padding-top: 8em;
     padding-bottom: 4.5em;
 }
 
@@ -41,7 +45,7 @@
 
 
 .bio {
-  padding-top: 12%;
+  padding-top: 7.5%;
 }
 
 .profile-info {
@@ -60,14 +64,17 @@
   align-content: center;
   height: 40em;
   width: 80vw;
-  padding-top: -10px;
   background-color: rgba(255, 255, 255);
 
 }
 
+.profile-location {
+  border-bottom: double;
+  border-width: thick;
+}
+
 .profile-view {
-  margin-top: 10px;
-  height: 22em;
+  height: 20em;
   display: flex;
   justify-content: center;
 }
@@ -76,9 +83,11 @@
   background-color: #F8F8F8;
   box-shadow: 8px 10px 5px #C0C0C0;
   height: 300px;
+  width: 100%;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 10px;
 }
 
 .button-profile {
@@ -93,16 +102,12 @@ border-style: none;
   height: 10%;
   width: 35em;
   text-align: center;
+
 }
 
 .trip-log-title {
   width: 40%;
   margin-bottom: 10px;
-}
-
-.demo-bio {
-  margin-top: 10px;
-  text-align: center;
 }
 
 .form-box-show {
@@ -121,18 +126,20 @@ border-style: none;
 
 .biography-box {
   margin-top: 10px;
+  margin-left: 5px;
   padding-top: 10px;
-  height: 150px;
+  height: 138px;
   width: 100%;
   overflow-y: scroll;
   text-align: center;
   background-color: white;
+  border-style: groove;
 }
 
 .demo-box {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.submit-profile-button{
-  margin-top: 0;
+.button-profile {
+  background-color: #F8F8F8;
 }
