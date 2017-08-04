@@ -13,3 +13,6 @@ img {
   top: 60em;
   margin-left: 80px;
 }
+.typeahead{
+  z-index: 9;
+}

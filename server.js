@@ -98,7 +98,7 @@ app.get('/logout', function (req, res) {
 
 //NPS api call
 app.get('/api/tacos/:term', (req, res, next) => {
-    axios.get(`https://developer.nps.gov/api/v0/parks?fields=name,images,addresses&q=${req.params.term}`, {
+    axios.get('https://developer.nps.gov/api/v0/parks?limit=519&fields=addresses', {
         headers: {
             Authorization: 'BE3CC0CE-4F5F-45B7-86AD-EE2ACEC43924'
         }
