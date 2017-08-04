@@ -7,7 +7,7 @@
   background-size: cover;
 }
 
-img {
+#banner {
   position: absolute;
   height: 700px;
   top: 60em;

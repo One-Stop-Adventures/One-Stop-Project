@@ -56,7 +56,7 @@ class Shop extends Component {
 
 
         <div className="row">
-          <div className="col-sm-3 col-md-3">
+          <div className="col-sm-4 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={boot} alt="..." />
                 <div className="caption shop-caption">
@@ -155,9 +155,6 @@ class Shop extends Component {
                 </div>
             </div>
           </div>
-
-
-
 
         </div>
       </div>
