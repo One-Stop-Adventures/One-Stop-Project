@@ -14,6 +14,8 @@ class Profile extends Component {
     return (
       <div>
       <Nav2 />
+
+      
       <a href="https://devmountain.com/dallas-bootcamp">
       <img id="banner" src={Banner} alt="..." />
       </a>
