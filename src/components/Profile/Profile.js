@@ -18,7 +18,7 @@ class Profile extends Component {
       <img src={Banner} alt="..." />
       </a>
       <header className="profile-header-pic">
-      <Bio />
+      <Bio profileParams={this.props.match.params.id}/>
       <TripLogs profileParams={this.props.match.params.id}/>
       <Stats />
       <Footer />
