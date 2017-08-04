@@ -20,7 +20,8 @@ const Nav2 = () => {
             <li className="nav-links"><Link to={'/shop'}><strong>Shop</strong></Link></li>
             <li className="nav-links"><Link to={'/about'}><strong>About</strong></Link></li>
             <li className="nav-links"><Link to={'/blog'}><strong>Blog</strong></Link></li>
-            <li className="nav-links-1"><Link to={'/Profile'}><strong>Profile</strong></Link></li>
+            <li className="nav-links"><Link to={'/Profile'}><strong>Profile</strong></Link></li>
+            <li className="nav-links-1"><strong>Logout</strong></li>
           </ul>
         </div>
     </nav>

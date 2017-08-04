@@ -55,8 +55,8 @@ class Shop extends Component {
           </div>
 
 
-        <div className="row">
-          <div className="col-sm-4 col-md-3">
+        <div className="row about-row-2">
+          <div className="col-sm-3 col-md-3">
             <div className="thumbnail shop-thumbnail">
               <img className="shop-img" src={boot} alt="..." />
                 <div className="caption shop-caption">

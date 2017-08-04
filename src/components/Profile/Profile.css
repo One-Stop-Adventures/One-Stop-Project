@@ -8,8 +8,7 @@
 }
 
 #banner {
-  position: absolute;
+  position: relative;
   height: 700px;
-  top: 60em;
-  margin-left: 80px;
+  top: 10em;
 }

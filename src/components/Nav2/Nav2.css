@@ -24,7 +24,6 @@
 
 .brand-2 {
   margin-left: 10px;
-  padding-right: 10%;
 }
 
 
@@ -39,6 +38,8 @@
 .nav-links-1 {
   padding-left: 50px;
   padding-right: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .nav-links-1:hover {
   text-decoration: underline;
