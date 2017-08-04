@@ -12,16 +12,13 @@
 
 .shop-thumbnail {
   height: 400px;
-  width: 350px;
+  width: 237px;
 }
 
 .shop-img {
   height: 200px;
 }
 
-img {
-  height: 100px;
-}
 .shop-button {
   display: flex;
   flex-direction: row;
