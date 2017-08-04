@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Route, withRouter, Switch, Redirect} from 'react-router-dom'
 import Landing from './components/Landing/Landing'
 import About from './components/About/About'
 import Blog from './components/Blog/Blog'
@@ -14,23 +14,12 @@ import Register from './components/Register/Register'
 import Dashboard from './components/Dashboard/Dashboard'
 
 class App extends Component {
-  
-  constructor () {
-    super() 
-    this.showProfile = this.showProfile.bind(this)
-
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
   }
   
-  showProfile({match}){
-    console.log(this.props.userId)
-    if( this.props.userId ){
-      return <Profile match = {match}/>
-    } else {
-      return <Redirect to="/register"/>
-    }
-  }
-
   render() {
+    console.log(this.props.userId)
     return (
       <div>
         <Switch>
@@ -38,8 +27,7 @@ class App extends Component {
           <Route path='/about' component={About} />
           <Route path='/blog' component={Blog} />
           <Route path='/shop' component={Shop} />
-          <Route path='/profile/:id' render = {this.showProfile} />
-
+          <PrivateRoute path='/profile/:id' component={Profile} userId={this.props.userId}/>
           <Route exact path='/register' component={Register} />
           <Route path='/dashboard/:id' component={Dashboard} />
         </Switch>
@@ -53,4 +41,8 @@ function mapStateToProps (state) {
     userId: state.profile.user.id
   }
 }
-export default connect(mapStateToProps)(App);
+export default withRouter(connect( mapStateToProps )(App))
+
+function PrivateRoute ({path, component, userId}) {
+  return userId ? <Route path={path} component={component} /> : <Redirect to="/" />
+}
