@@ -15,7 +15,7 @@ class Profile extends Component {
       <div>
       <Nav2 />
       <a href="https://devmountain.com/dallas-bootcamp">
-      <img src={Banner} alt="..." />
+      <img id="banner" src={Banner} alt="..." />
       </a>
       <header className="profile-header-pic">
       <Bio />
