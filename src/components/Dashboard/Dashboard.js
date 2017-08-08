@@ -24,23 +24,23 @@ class Dashboard extends Component{
   }
   async componentDidMount(){
     const response = await this.props.fetchTrip(this.props.match.params.id)
-    const res = await axios.get(`/api/weather/${response.value.data[0].city}/${response.value.data[0].state}`)
-    console.log(res)
+    console.log(response)
+    const res = await axios.get(`/api/weather/${response.value.data.city}/${response.value.data.state}`)
     this.setState({weatherInfo: res.data.forecast.simpleforecast.forecastday})
   }
   render(){
-    const tripData = {}
-    for(let i = 0; i < this.props.trip.length; i++){
-      tripData.name = this.props.trip[i].trip_name;
-      tripData.city = this.props.trip[i].city;
-      tripData.state = this.props.trip[i].state;
-    }
+    const tripData = this.props.trip
+    // for(let i = 0; i < this.props.trip.length; i++){
+    //   tripData.name = this.props.trip[i].trip_name;
+    //   tripData.city = this.props.trip[i].city;
+    //   tripData.state = this.props.trip[i].state;
+    // }
     console.log(this.props.trip)
     return(
       <div>
         <Nav2></Nav2>
         <div className="jumbotron dashboard-jumbotron">
-          <h1>Hello cNasty, welcome to your  dashboard</h1>
+          <h1>Hello {tripData.first_name}, welcome to your  dashboard</h1>
           <h3>Lets plan your trip:</h3>
           <h2>{tripData.name}</h2>
           <DashboardWeather city={tripData.city} state={tripData.state} weatherInfo={this.state.weatherInfo} className="weather"/>
