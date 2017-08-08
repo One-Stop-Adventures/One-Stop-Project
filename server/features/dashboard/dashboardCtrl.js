@@ -1,10 +1,17 @@
 module.exports = {
 
     getTrip: function(req, res, next) {
+      let trip_id = req.params.trip_id
       req.app.get('db')
       .get_trip([req.params.trip_id])
-      .then(trip=>{
-        res.status(200).json(trip)
+      .then(trips=>{
+        console.log(trips)
+        console.log(trip_id)
+        for(let i = 0; i < trips.length; i++){
+          if(trips[i].id == trip_id){
+            res.status(200).json(trips[i])
+          }
+        }
       })
       .catch(err=>{
         console.log('Theres an error dumbass')
