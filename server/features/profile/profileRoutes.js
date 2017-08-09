@@ -9,4 +9,8 @@ module.exports = app => {
     app.post('/api/user/:id/trips', profileCtrl.createTrip)
     app.get('/api/user/:id/trips', profileCtrl.savedTrips)
     app.delete('/api/user/:id/trips/:trip_id', profileCtrl.deleteTrip)
+//Log Endpoings
+    app.get('/api/user/log/:id', profileCtrl.getLogs)
+    app.post('/api/user/log', profileCtrl.createLog)
+    app.get('/api/log/:id', profileCtrl.getLog)
 }

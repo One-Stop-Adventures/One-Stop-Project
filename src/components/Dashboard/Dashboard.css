@@ -109,3 +109,18 @@
   margin-bottom: 3%;
   margin-top: 3%;
 }
+
+.complete-trip{
+  margin-bottom: 30px;
+  height: 60px;
+  font-size: 30px;
+}
+.submit-trip{
+  margin-right: 20px;
+}
+.complete-trip-form{
+  padding: 30px;
+  border-style: solid;
+  border-color: #9A9A9A;
+  margin-bottom: 30px;
+}
