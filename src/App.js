@@ -8,18 +8,28 @@ import Footer from './components/Footer/Footer'
 import Profile from './components/Profile/Profile'
 import { connect } from 'react-redux'
 import { fetchUser } from './ducks/profile_reducer'
+import axios from 'axios'
 
 
 import Register from './components/Register/Register'
 import Dashboard from './components/Dashboard/Dashboard'
 
 class App extends Component {
+  componentDidMount() {
+    console.log("Hello")
+    axios.get('/user_auth')
+    .then(response => {
+      if (response.data && response.data.id) {
+        this.props.fetchUser(response.data.id)
+      }
+    })
+    
+  }
   componentWillReceiveProps(nextProps) {
     console.log(nextProps)
   }
   
   render() {
-    console.log(this.props.userId)
     return (
       <div>
         <Switch>
@@ -41,7 +51,7 @@ function mapStateToProps (state) {
     userId: state.profile.user.id
   }
 }
-export default withRouter(connect( mapStateToProps )(App))
+export default withRouter(connect( mapStateToProps, {fetchUser} )(App))
 
 function PrivateRoute ({path, component, userId}) {
   return userId ? <Route path={path} component={component} /> : <Redirect to="/" />
