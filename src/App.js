@@ -6,6 +6,7 @@ import Blog from './components/Blog/Blog'
 import Shop from './components/Shop/Shop'
 import Footer from './components/Footer/Footer'
 import Profile from './components/Profile/Profile'
+import TripLog from './components/TripLog/TripLog'
 import { connect } from 'react-redux'
 import { fetchUser } from './ducks/profile_reducer'
 
@@ -17,7 +18,7 @@ class App extends Component {
   componentWillReceiveProps(nextProps) {
     console.log(nextProps)
   }
-  
+
   render() {
     console.log(this.props.userId)
     return (
@@ -29,7 +30,8 @@ class App extends Component {
           <Route path='/shop' component={Shop} />
           <PrivateRoute path='/profile/:id' component={Profile} userId={this.props.userId}/>
           <Route exact path='/register' component={Register} />
-          <Route path='/dashboard/:id' component={Dashboard} />
+          <Route path='/user/:userid/dashboard/:id' component={Dashboard} />
+          <Route path='/user/:userid/log/:id' component={TripLog} />
         </Switch>
 
       </div>
