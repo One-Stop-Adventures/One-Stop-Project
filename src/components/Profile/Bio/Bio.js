@@ -18,6 +18,7 @@ constructor(){
   this.changeView = this.changeView.bind(this)
   this.editPic = this.editPic.bind(this)
   this.uploadS3 = this.uploadS3.bind(this)
+  this.updateProfilePic = this.updateProfilePic.bind(this)
 }
 
 changeView(){
@@ -45,6 +46,9 @@ uploadS3(e){
   })
 
 }
+updateProfilePic() {
+  
+}
   render(){
     return (
       <div className='bio'>
@@ -60,7 +64,7 @@ uploadS3(e){
             ?
             <div className="edit-profile-pic" style={{backgroundImage: 'url(' + this.state.changePicUrl + ')'}}>
               <input type="file" value={this.state.changePicFile} onChange={this.uploadS3} />
-              <button type='submit'>Submit</button>
+              <button onClick={this.updateProfilePic} type='submit'>Submit</button>
             </div>
             :
             <div className="profile-pic" onClick={this.editPic}>
