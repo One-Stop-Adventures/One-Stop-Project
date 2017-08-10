@@ -5,6 +5,7 @@ module.exports = app => {
     app.get('/api/user/:id', profileCtrl.getUser)
     app.put('/api/user/:id', profileCtrl.editProfile)
     app.delete('/api/user/:id', profileCtrl.deleteProfile)
+    app.put('/api/pic/:id', profileCtrl.editPic)
 //Trip Endpoints
     app.post('/api/user/:id/trips', profileCtrl.createTrip)
     app.get('/api/user/:id/trips', profileCtrl.savedTrips)

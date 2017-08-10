@@ -32,6 +32,17 @@ module.exports = {
                 res.status(500).json(err)
             })
     },
+    editPic: function (req, res, next) {
+      console.log(req.body)
+      req.app.get('db')
+        .edit_pic([req.params.id, req.body.img])
+        .then(img=>{
+          res.status(200).json(img)
+        })
+        .catch(err=>{
+          res.status(500).json(err)
+        })
+    },
 
 //Trip Endpoints
     savedTrips: function( req, res, next ){
