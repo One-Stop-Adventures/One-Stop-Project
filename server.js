@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -11,8 +12,18 @@ const FacebookStrategy = require('passport-facebook').Strategy
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const LocalStrategy = require('passport-local').Strategy;
 const logout = require('express-passport-logout')
+const aws = require('aws-sdk');
 
 const axios = require('axios');
+
+aws.config.update({
+   accessKeyId: process.env.AWS_ACCESSKEYID,
+   secretAccessKey: process.env.AWS_SECRETACCESSKEY,
+   region: process.env.AWS_REGION,
+   signatureVersion: 'v4'
+})
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
@@ -214,9 +225,33 @@ app.get('/auth/google/callback', (req, res, next) => {
         })(req, res, next);
 });
 
+app.get('/api/s3', function(req, res, next) {
+   const s3 = new aws.S3()
+   const s3Config = {
+      Bucket: process.env.BUCKET_NAME,
+      Key: req.query.file_name,
+      Expires: 60,
+      ContentType: req.query.file_type,
+      ACL: 'public-read'
+   }
+   s3.getSignedUrl('putObject', s3Config, function(err, response) {
+      if (err) {
+         return next(err)
+      }
+      const data = {
+         signed_request: response,
+         url: `https://${process.env.BUCKET_NAME}.s3.amazonaws.com/${req.query.file_name}`
+      }
+      return res.status(200).json(data)
+   })
+
+})
+
 app.listen(process.env.PORT, () => {
     console.log('Jet fuel cant melt steel beams')
 })
+
+
 
 /*
 { id: '1654333687924177',
