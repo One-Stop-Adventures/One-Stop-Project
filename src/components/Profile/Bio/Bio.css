@@ -1,22 +1,23 @@
 body {
   font-family: 'Josefin Slab';
 }
-.profile-pic, .edit-profile-pic {
-    background-image: url('./vann.jpg');
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: multiply;
-    vertical-align: middle;
-    text-align: center;
-    color: transparent;
-    transition: all .3s ease;
-    text-decoration: none;
-    border-style: solid;
-    border-width: thick;
-    border-color: black;
+.profile-pic,
+.edit-profile-pic {
+  background-image: url('./vann.jpg');
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  vertical-align: middle;
+  text-align: center;
+  color: transparent;
+  transition: all .3s ease;
+  text-decoration: none;
+  border-style: solid;
+  border-width: thick;
+  border-color: black;
 }
 
 .edit-profile-pic {
@@ -29,24 +30,23 @@ body {
 }
 
 .profile-pic:hover {
-    background-color: rgba(0,0,0,.5);
-    z-index: 10000;
-    color: #fff;
-    transition: all .3s ease;
-    text-decoration: none;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 10000;
+  color: #fff;
+  transition: all .3s ease;
+  text-decoration: none;
 }
 
 .cam-icon {
-    display: inline-block;
-    padding-top: 8em;
-    padding-bottom: 4.5em;
+  display: inline-block;
+  padding-top: 8em;
+  padding-bottom: 4.5em;
 }
 
-.pic-container{
+.pic-container {
   display: flex;
   justify-content: center;
 }
-
 
 .bio {
   padding-top: 7.5%;
@@ -63,13 +63,11 @@ body {
   width: 200px;
 }
 
-
 .profile-info {
   align-content: center;
   height: 40em;
   width: 80vw;
   background-color: rgba(255, 255, 255);
-
 }
 
 .profile-location {
@@ -83,9 +81,9 @@ body {
   justify-content: center;
 }
 
-.profile-well{
-  background-color: #F8F8F8;
-  box-shadow: 8px 10px 5px #C0C0C0;
+.profile-well {
+  background-color: #f8f8f8;
+  box-shadow: 8px 10px 5px #c0c0c0;
   height: 300px;
   width: 100%;
   text-align: center;
@@ -95,9 +93,9 @@ body {
 }
 
 .button-profile {
-display: inline;
-margin-top: 5px;
-border-style: none;
+  display: inline;
+  margin-top: 5px;
+  border-style: none;
 }
 
 .bio-box {
@@ -106,7 +104,6 @@ border-style: none;
   height: 10%;
   width: 35em;
   text-align: center;
-
 }
 
 .trip-log-title {
@@ -145,10 +142,9 @@ border-style: none;
 }
 
 .button-profile {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
-.change-pic-form{
-  background-color: #fff;
+.change-pic-form {
   padding: 10px;
 }
