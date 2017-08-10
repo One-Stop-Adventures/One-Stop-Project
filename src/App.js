@@ -17,10 +17,9 @@ import Dashboard from './components/Dashboard/Dashboard'
 
 class App extends Component {
   componentDidMount() {
-    console.log("Hello")
     axios.get('/user_auth')
     .then(response => {
-      if (response.data && response.data.id) {
+      if (response.data.id) {
         this.props.fetchUser(response.data.id)
       }
     })

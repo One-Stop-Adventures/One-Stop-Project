@@ -22,7 +22,9 @@ constructor(){
   this.changeView = this.changeView.bind(this)
   this.editPic = this.editPic.bind(this)
   this.uploadS3 = this.uploadS3.bind(this)
+
   this.submitPic = this.submitPic.bind(this)
+
 }
 
 changeView(){
@@ -57,6 +59,7 @@ submitPic(){
 }
 componentWillMount(){
   this.props.fetchUser(this.props.profileParams)
+
 }
   render(){
     console.log(this.props)
@@ -72,6 +75,7 @@ componentWillMount(){
           {
             this.state.changePic
             ?
+
             <div>
             <div className="edit-profile-pic" style={{backgroundImage: 'url(' + this.state.changePicUrl + ')'}}></div>
             <form onSubmit={this.submitPic} className='change-pic-form'>
@@ -79,6 +83,7 @@ componentWillMount(){
             <button type='submit'>Submit</button>
             <button onClick={this.editPic}>Cancel</button>
             </form>
+
             </div>
             :
             <div className="profile-pic" onClick={this.editPic} style={{backgroundImage: 'url(' + this.props.user.profile_pic + ')'}}>

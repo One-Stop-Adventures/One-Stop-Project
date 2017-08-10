@@ -1,0 +1,14 @@
+.backgroundtrip {
+  background: url(./tripbg.jpg) center center fixed;
+  background-size: cover;
+}
+
+.triprow {
+  color: white;
+  text-align: center;
+  padding-top: 8%;
+  height: 100vh;
+}
+
+.tripfooter {
+}
