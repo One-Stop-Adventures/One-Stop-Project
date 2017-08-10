@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const initialState ={
     user: [],
-    logs: []
+    logs: [],
+    pic: []
 }
 
 
@@ -15,6 +16,10 @@ const FETCH_LOG_PENDING = 'profile/FETCH_LOG_PENDING'
 const FETCH_LOG_REJECTED = 'profile/FETCH_LOG_REJECTED'
 const FETCH_LOG_FULFILLED = 'profile/FETCH_LOG_FULFILLED'
 const EDIT_BIO = 'profile/EDIT_BIO'
+const EDIT_PIC = 'profile/EDIT_PIC'
+const EDIT_PIC_PENDING = 'profile/EDIT_PIC_PENDING'
+const EDIT_PIC_REJECTED = 'profile/EDIT_PIC_REJECTED'
+const EDIT_PIC_FULFILLED = 'profile/EDIT_PIC_FULFILLED'
 
 
 export function fetchUser(id){
@@ -45,6 +50,15 @@ export function createLog(trip){
   return axios.post('/api/user/log', trip)
 }
 
+export function editPic(img, id){
+  const picPromise = axios.put(`/api/pic/${id}`, {img})
+  return{
+    type: EDIT_PIC,
+    payload: picPromise
+  }
+}
+
+
 export default function profileReducer(state=initialState, action){
     switch(action.type){
         case FETCH_USER_FULFILLED:
@@ -53,6 +67,8 @@ export default function profileReducer(state=initialState, action){
           return Object.assign({}, state, {logs: action.payload.data})
         case EDIT_BIO:
           return state;
+        case EDIT_PIC_FULFILLED:
+          return Object.asign({}, state, {pic: action.payload.data})
         default:
             return state
    }
