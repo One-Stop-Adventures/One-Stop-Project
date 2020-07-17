@@ -10,7 +10,7 @@
     "express": "^4.15.3",
     "express-passport-logout": "^0.1.0",
     "express-session": "^1.15.4",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "massive": "^3.1.0",
     "moment": "^2.18.1",
     "passport": "^0.3.2",
